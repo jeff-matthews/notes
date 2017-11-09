@@ -1,0 +1,31 @@
+﻿AMP API
+1. Edit index.html line 53; add URL (see README)
+2. Build locally
+3. Copy to REVIEW server: scp -r dist jmatthews@172.30.67.22:/home/jmatthews
+4. Copy to doc-site dir: sudo cp -r dist /home/affinipay/www/doc-site/swagger-ui-petstore
+5. Change URL in text box to path of swagger.yaml on server
+
+****TRY UPDATING FILES ON SERVER. MAKE SURE INDEX.HTML HAS THE URL AND TRY AGAIN****
+
+There are a couple problems with this:
+1. There's an error on the page
+2. The cron job that auto deploys the SNAPSHOT release to QA overwrites the swagger directory every 15 minutes
+
+Questions:
+1. Where should we host docs: API server or doc server?
+2. What do we need to do to set that up?
+3. What's up with the allOf property? It's fucking up the swagger-ui-slate output. It's how swagger supports inheritance and polymorphic APIs. Will need to tweak swagger-ui-slate to work with this.
+  - It's the only way trevor has been able to represent inheritance (e.g., contacts is composed of several types)
+4. What's up with the lack of specificity in the required parameters? We're basically saying the entire object is required. That's lame. Is it true?
+  - according to trevor, we can fix this by adding separate objects for POST, PATCH, and DELETE
+  - instead of creating separate objects for each operation, we can use the readOnly attribute to hide system defined properties like ID and date created? what other properties differentiate models btwn operations?
+    - https://github.com/swagger-api/swagger-ui/issues/884
+    - https://github.com/swagger-api/swagger-ui/issues/1231
+
+allOf and _types
+  - this is how it works, look at Contacts for a good example
+  - Contact types are either Person or Organization
+  - Add 'discriminator: _type' to the Contact object that can be of a _type Person or Organization
+  - $ref the definition that you added the discriminator field to in each '_type' definition to make them show up in the drop-downs in redoc
+  - for example, both the Person and Organization definitions reference the Contacts object, therefore, they show up in Contacts in redoc
+  - unless other objects reference the "main" object like Contacts, then there won't be a value in the drop-down. after talking to trevor, it appears as though _type will be more robust one day, but for now, it's like a key you can use to cahce objects on return

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tech Pubs : Doc Site Performance Optimization</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Tech Pubs</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="$exportUtils.getTitleAsHref($breadcrumb)">Tech Pubs</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="$exportUtils.getTitleAsHref($breadcrumb)">Planning</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Tech Pubs : Doc Site Performance Optimization
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jeff Matthews</span>, last modified on Apr 20, 2017
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <div class='plugin-tabmeta-details'><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup><col/><col/></colgroup><tbody><tr><th class="confluenceTh">Target release</th><td class="confluenceTd"><a href="https://affinipay.atlassian.net/browse/TP/fixforversion/11400" class="external-link" rel="nofollow">20170331</a>, <a href="https://affinipay.atlassian.net/browse/TP/fixforversion/11600" class="external-link" rel="nofollow">2017-Q2-1</a></td></tr><tr><th class="confluenceTh">Epic</th><td class="confluenceTd"><div class="content-wrapper"><p>
+
+    
+
+            
+
+
+
+    <span class="confluence-jim-macro jira-issue" data-jira-key="TP-222" >
+                <a href="https://affinipay.atlassian.net/browse/TP-222?src=confmacro" class="jira-issue-key"><img class="icon" src="https://affinipay.atlassian.net/images/icons/issuetypes/epic.svg" />TP-222</a>
+                    -
+            <span class="summary">Performance Optimization</span>
+                                                            <span class="aui-lozenge aui-lozenge-subtle aui-lozenge-current jira-macro-single-issue-export-pdf">In Progress</span>
+            </span>
+</p></div></td></tr><tr><th class="confluenceTh">Document status</th><td class="confluenceTd"><div class="content-wrapper"><p><span class="status-macro aui-lozenge aui-lozenge-success aui-lozenge-subtle">APPROVED</span></p></div></td></tr><tr><th class="confluenceTh">Document owner</th><td class="confluenceTd"><div class="content-wrapper"><p><a class="confluence-userlink user-mention current-user-mention" data-username="jmatthews" href="https://affinipay.atlassian.net/wiki/display/~jmatthews" data-linked-resource-id="26411016" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://affinipay.atlassian.net/wiki">Jeff Matthews</a></p></div></td></tr><tr><th class="confluenceTh">Designer</th><td class="confluenceTd"></td></tr><tr><th class="confluenceTh">Developers</th><td class="confluenceTd"><a class="confluence-userlink user-mention current-user-mention" data-username="jmatthews" href="https://affinipay.atlassian.net/wiki/display/~jmatthews" data-linked-resource-id="26411016" data-linked-resource-version="1" data-linked-resource-type="userinfo" data-base-url="https://affinipay.atlassian.net/wiki">Jeff Matthews</a></td></tr><tr><th class="confluenceTh">QA</th><td class="confluenceTd"></td></tr></tbody></table></div></div><h2 id="DocSitePerformanceOptimization-Goal">Goal</h2><p>Ensure that the <a href="https://developers.affinipay.com/" class="external-link" rel="nofollow">AffiniPay developer site</a> leverages web development best practices to optimize page speed. </p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Here's great article on optimizing Jekyll performance using Gulp: <a title="Follow link" href="http://savaslabs.com/2016/10/19/optimizing-jekyll-with-gulp.html" rel="nofollow" class="external-link">http://savaslabs.com/2016/10/19/optimizing-jekyll-with-gulp.html</a></p></div></div><h2 id="DocSitePerformanceOptimization-Requirements">Requirements</h2><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup><col style="width: 45.0px;"/><col style="width: 184.0px;"/><col style="width: 700.0px;"/><col style="width: 97.0px;"/><col style="width: 436.0px;"/></colgroup><tbody><tr><th colspan="1" class="confluenceTh"><br/></th><th class="confluenceTh">Title</th><th class="confluenceTh">User Story</th><th class="confluenceTh">Importance</th><th class="confluenceTh">Notes</th></tr><tr><td colspan="1" class="confluenceTd"><a href="https://affinipay.atlassian.net/browse/TP-223" class="external-link" rel="nofollow">TP-223</a></td><td class="confluenceTd"><span>Enable site resource compression</span></td><td class="confluenceTd">Compressing resources with gzip or deflate can reduce the number of bytes sent over the network.</td><td class="confluenceTd">Must have</td><td class="confluenceTd"><p><br/></p></td></tr><tr><td colspan="1" class="confluenceTd"><span><a href="https://affinipay.atlassian.net/browse/TP-224" class="external-link" rel="nofollow">TP-224</a></span></td><td class="confluenceTd"><span>Eliminate render-blocking JS/CSS in above-the-fold site content</span></td><td class="confluenceTd"><p><span style="color: rgb(20,19,59);">Prevent CSS file from delaying the initial render for the end user by inserting CSS that’s critical to above-the-fold content into the HTML head. By “above the fold” I mean content viewable to the user on the initial page load before interacting with the site.</span></p><p>Execute JS asynchronously, meaning it will be executed when it’s ready while the page is loading without interfering with the render.</p></td><td class="confluenceTd"><span>Must have</span></td><td class="confluenceTd">See the <a href="http://savaslabs.com/2016/10/19/optimizing-jekyll-with-gulp.html" class="external-link" rel="nofollow">reference article</a> for an example<span>.</span></td></tr><tr><td colspan="1" class="confluenceTd"><span><a href="https://affinipay.atlassian.net/browse/TP-225" class="external-link" rel="nofollow">TP-225</a></span></td><td colspan="1" class="confluenceTd"><span>Leverage browser caching</span></td><td colspan="1" class="confluenceTd">Setting an expiry date or a maximum age in the HTTP headers for static resources instructs the browser to load previously downloaded resources from local disk rather than over the network.</td><td colspan="1" class="confluenceTd"><span>Must have</span></td><td colspan="1" class="confluenceTd"><br/></td></tr><tr><td colspan="1" class="confluenceTd"><span><a href="https://affinipay.atlassian.net/browse/TP-226" class="external-link" rel="nofollow">TP-226</a></span></td><td colspan="1" class="confluenceTd"><span>Optimize images</span></td><td colspan="1" class="confluenceTd"><p>Manually shrink image file sizes, then set up gulp to <a href="https://github.com/imagemin/imagemin" class="external-link" rel="nofollow">optimize</a> them even further for the smallest images possible.</p></td><td colspan="1" class="confluenceTd"><span>Must have</span></td><td colspan="1" class="confluenceTd"><span>I've already added a working Gulp task for this this to the gulpfile (minify-images) as part of <a href="https://affinipay.atlassian.net/browse/TP-31" class="external-link" rel="nofollow">TP-31</a>, but it may not be complete. Verify working example against <a href="http://savaslabs.com/2016/10/19/optimizing-jekyll-with-gulp.html" class="external-link" rel="nofollow">reference article</a>.</span></td></tr><tr><td colspan="1" class="confluenceTd"><p><a href="https://affinipay.atlassian.net/browse/TP-227" class="external-link" rel="nofollow">TP-227</a></p></td><td colspan="1" class="confluenceTd"><span>Minify HTML</span></td><td colspan="1" class="confluenceTd"><p>Compacting HTML code, including any inline JavaScript and CSS contained in it, can save many bytes of data and speed up download and parse times.</p></td><td colspan="1" class="confluenceTd"><span>Must have</span></td><td colspan="1" class="confluenceTd">I've already added a working Gulp task for this this to the gulpfile (minify-html) as part of <a href="https://affinipay.atlassian.net/browse/TP-31" class="external-link" rel="nofollow">TP-31</a>.</td></tr><tr><td colspan="1" class="confluenceTd"><a href="https://affinipay.atlassian.net/browse/TP-228" class="external-link" rel="nofollow">TP-228</a></td><td colspan="1" class="confluenceTd">Replace CSS/JS links</td><td colspan="1" class="confluenceTd">Update the &lt;script&gt; and &lt;link&gt; tags in all page layouts to point to the minified and concatenated files (e.g., styles.css and scripts.js).</td><td colspan="1" class="confluenceTd">Must have</td><td colspan="1" class="confluenceTd"><span>We'll also need to exclude or delete all css and js files being copied to the _site directory except for the concatenated files.</span></td></tr><tr><td colspan="1" class="confluenceTd"><a href="https://affinipay.atlassian.net/browse/TP-121" class="external-link" rel="nofollow">TP-121</a></td><td colspan="1" class="confluenceTd">Mobile optimization</td><td colspan="1" class="confluenceTd"><span>Tune the site to address lag/choppiness on mobile devices</span></td><td colspan="1" class="confluenceTd">Must have</td><td colspan="1" class="confluenceTd">QA opened this issue a while back. Double-check to ensure it's still relevant.</td></tr></tbody></table></div>
+                    </div>
+
+                    
+                 
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 19, 2017 09:39</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

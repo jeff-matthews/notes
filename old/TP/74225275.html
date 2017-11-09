@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tech Pubs : Grant OAuth 2 app permission (Postman)</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Tech Pubs</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="$exportUtils.getTitleAsHref($breadcrumb)">Tech Pubs</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="$exportUtils.getTitleAsHref($breadcrumb)">How-to articles</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Tech Pubs : Grant OAuth 2 app permission (Postman)
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Victor Ude</span>, last modified on May 15, 2017
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Use this guide to grant OAuth 2.0 permissions to your AffiniPay OAuth app using Postman.</p><h2 id="GrantOAuth2apppermission(Postman)-EnvironmentSetup">Environment Setup</h2><ol><li>Get <a href="https://www.getpostman.com/" class="external-link" rel="nofollow">Postman</a></li><li>Get the AffiniPay Postman collections<br/><ul><li>AffiniPay Authentication API - <a href="https://www.getpostman.com/collections/8685704124985b66da7f" class="external-link" rel="nofollow">https://www.getpostman.com/collections/8685704124985b66da7f</a></li><li>AffiniPay Merchant Application API - <a href="https://www.getpostman.com/collections/2e93cb252d07a8c9c1cf" class="external-link" rel="nofollow">https://www.getpostman.com/collections/2e93cb252d07a8c9c1cf</a></li><li>AffiniPay Payment Gateway API - <a href="https://www.getpostman.com/collections/17daab7016cc1e86d045" class="external-link" rel="nofollow">https://www.getpostman.com/collections/17daab7016cc1e86d045</a></li></ul></li><li>Get the AffiniPay Postman environment template (optional but recommended)<ul><li><a href="attachments/74225275/74225485.json" data-linked-resource-id="74225485" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="AffiniPay.postman_environment.json" data-linked-resource-content-type="application/octet-stream" data-linked-resource-container-id="74225275" data-linked-resource-container-version="2">AffiniPay.postman_environment.json</a></li></ul></li><li>Import the environment template into Postman<ul><li><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/74225275/74225589.png" data-image-src="attachments/74225275/74225589.png" data-unresolved-comment-count="0" data-linked-resource-id="74225589" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Screen Shot 2017-05-11 at 3.36.32 PM.png" data-base-url="https://affinipay.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="74225275" data-linked-resource-container-version="2" data-media-id="62760e8e-ed6b-4213-a880-a25374387367" data-media-type="file"></span></li><li><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="attachments/74225275/74225623.png?height=250" data-image-src="attachments/74225275/74225623.png" data-unresolved-comment-count="0" data-linked-resource-id="74225623" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Screen Shot 2017-05-11 at 3.38.10 PM.png" data-base-url="https://affinipay.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="74225275" data-linked-resource-container-version="2" data-media-id="8df87b4e-8112-4892-9199-5528eeefd3fd" data-media-type="file"></span></li></ul></li><li>Fill out the template as needed from the <strong>Manage Environments</strong> menu.</li></ol><h2 id="GrantOAuth2apppermission(Postman)-Authorizationtheeasyway">Authorization the easy way</h2><ol><li>Select the <strong>Authorization</strong> tab under any open request and choose <strong>OAuth 2.0</strong> from the <strong>Type</strong> dropdown.<ul><li><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="attachments/74225275/74283358.png?height=250" data-image-src="attachments/74225275/74283358.png" data-unresolved-comment-count="0" data-linked-resource-id="74283358" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Screen Shot 2017-05-15 at 2.51.53 PM.png" data-base-url="https://affinipay.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="74225275" data-linked-resource-container-version="2" data-media-id="1bbe24b9-f7bf-45cd-bcda-35b0e28bb955" data-media-type="file"></span></li></ul></li><li>Click <strong>Get New Access Token</strong> and fill out the form with the following information then click <strong>Request Token</strong>.<ul><li>Token Name: &lt;your token name&gt;</li><li>Auth URL: <a href="https://secure.affinipay.com/oauth/authorize" class="external-link" rel="nofollow">https://secure.affinipay.com/oauth/authorize</a></li><li>Access Token URL: <a href="https://secure.affinipay.com/oauth/token" class="external-link" rel="nofollow">https://secure.affinipay.com/oauth/token</a></li><li>Client ID: &lt;your OAuth 2 app ID&gt;</li><li>Client Secret: &lt;your OAuth 2 app secret&gt;</li><li>Scope: <strong>chargeio</strong> OR  <strong>tenant</strong></li><li>Grant Type: Authorization Code</li></ul></li><li>Upon completing the web authorization flow presented from within Postman your token will appear in the list. Click on it and select &quot;Use Token&quot; for this request. You may use this same token for new and existing requests.</li></ol><h2 id="GrantOAuth2apppermission(Postman)-Authorizationthehardway">Authorization the hard way</h2><p>This process is not typical. You should only step through this procedure if you are troubleshooting OAuth 2 endpoints otherwise use &quot;the easy way&quot;.</p><p></p><ol><li>Under <strong>Collections</strong> (left sidebar in the <strong>Builder</strong> Postman tab) expand <strong>AffiniPay Authentication API &gt; Gateway Credentials</strong> and click <strong>Connect with AffiniPay (Web Server)</strong><ul><li><p class="auto-cursor-target"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="attachments/74225275/74225725.png?height=250" data-image-src="attachments/74225275/74225725.png" data-unresolved-comment-count="0" data-linked-resource-id="74225725" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Screen Shot 2017-05-11 at 3.43.51 PM.png" data-base-url="https://affinipay.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="74225275" data-linked-resource-container-version="2" data-media-id="26d10fb1-78d7-4d6f-a970-746d1f73a3a8" data-media-type="file"></span></p><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Note</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>You must have <strong>client_id</strong> and <strong>redirect_uri</strong> values in the environment template before proceeding. Add <strong>client_secret</strong> and for a later step in this process.</p></div></div></li></ul></li><li>Click <strong>Code</strong> beneath the <strong>Save</strong> button to the right<ul><li><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/74225275/74225833.png" data-image-src="attachments/74225275/74225833.png" data-unresolved-comment-count="0" data-linked-resource-id="74225833" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Screen Shot 2017-05-11 at 3.46.24 PM.png" data-base-url="https://affinipay.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="74225275" data-linked-resource-container-version="2" data-media-id="4ddabbe4-7da0-4276-8d57-f915d28840e4" data-media-type="file"></span></li></ul></li><li>Click <strong>Copy to Clipboard</strong> to copy the request information to the clipboard. You will need a portion of this information for the next step.<ul><li><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="attachments/74225275/74225978.png?height=250" data-image-src="attachments/74225275/74225978.png" data-unresolved-comment-count="0" data-linked-resource-id="74225978" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Screen Shot 2017-05-11 at 3.50.34 PM.png" data-base-url="https://affinipay.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="74225275" data-linked-resource-container-version="2" data-media-id="a5ffaaac-94ac-4c13-afb5-73a5c93939d4" data-media-type="file"></span><div class="confluence-information-macro confluence-information-macro-information"><p class="title">Known issue</p><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>There is presently a defect in Postman that causes HTTP queries to be improperly encoded. You will need to properly encode the query string until the issue is fixed.</p><p><a href="https://github.com/postmanlabs/postman-app-support/issues/2999" class="external-link" rel="nofollow">https://github.com/postmanlabs/postman-app-support/issues/2999</a></p></div></div></li></ul></li><li>Paste the <strong>Host</strong> and <strong>query string</strong> into a browser and execute a request (press enter)<ul><li><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/74225275/74226069.png" data-image-src="attachments/74225275/74226069.png" data-unresolved-comment-count="0" data-linked-resource-id="74226069" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="Screen Shot 2017-05-11 at 3.56.26 PM.png" data-base-url="https://affinipay.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="74225275" data-linked-resource-container-version="2" data-media-id="b0a4025a-1414-4d43-8910-89abe021ff51" data-media-type="file"></span></li></ul></li><li>Capture the <strong>code</strong> provided upon successfully granting your app authorization.<ul><li><p class="auto-cursor-target"><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/74225275/74226116.png" data-image-src="attachments/74225275/74226116.png" data-unresolved-comment-count="0" data-linked-resource-id="74226116" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="Screen Shot 2017-05-11 at 3.58.19 PM.png" data-base-url="https://affinipay.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="74225275" data-linked-resource-container-version="2" data-media-id="9d52177d-5758-44f9-a3cc-63f94bd95d63" data-media-type="file"></span></p></li></ul></li><li><p class="auto-cursor-target">Back in Postman, expand <strong>AffiniPay Authentication API &gt; Access Tokens</strong> and click <strong>Request an Access Token</strong></p></li><li><p class="auto-cursor-target">In the environment template under <strong>Manage Environments</strong>, set the value for <strong>code</strong> which you received from step 10. Ensure that <strong>scope</strong> in the POST request's JSON body matches the <strong>scope</strong> from step 9 (either <strong>chargeio</strong> or <strong>tenant</strong>) and hit the <strong>Send</strong> button.</p></li><li><p class="auto-cursor-target">Copy the value of the <strong>access_token</strong> received from the API and add it to the environment template as <strong>token_chargeio</strong> or <strong>token_tenant</strong> as applicable.</p></li></ol><h2 id="GrantOAuth2apppermission(Postman)-Relatedarticles">Related articles</h2><p></p><p>
+
+
+
+
+
+
+
+
+
+
+
+<ul class="content-by-label">
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                        <a href="/wiki/pages/viewpage.action?pageId=74225275">Grant OAuth 2 app permission (Postman)</a>
+                
+                        
+                    </div>
+    </li>
+    </ul>
+</p><p><br/></p><p><br/></p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/74225275/74225485.json">AffiniPay.postman_environment.json</a> (application/octet-stream)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/74225275/74225589.png">Screen Shot 2017-05-11 at 3.36.32 PM.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/74225275/74225623.png">Screen Shot 2017-05-11 at 3.38.10 PM.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/74225275/74225725.png">Screen Shot 2017-05-11 at 3.43.51 PM.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/74225275/74225833.png">Screen Shot 2017-05-11 at 3.46.24 PM.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/74225275/74225978.png">Screen Shot 2017-05-11 at 3.50.34 PM.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/74225275/74226069.png">Screen Shot 2017-05-11 at 3.56.26 PM.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/74225275/74226167.png">Screen Shot 2017-05-11 at 3.58.19 PM.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/74225275/74226116.png">Screen Shot 2017-05-11 at 3.58.19 PM.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/74225275/74283336.png">Screen Shot 2017-05-15 at 2.51.10 PM.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/74225275/74283358.png">Screen Shot 2017-05-15 at 2.51.53 PM.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                 
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 19, 2017 09:39</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

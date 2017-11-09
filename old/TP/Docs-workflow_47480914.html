@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tech Pubs : Docs workflow</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Tech Pubs</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="$exportUtils.getTitleAsHref($breadcrumb)">Tech Pubs</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="$exportUtils.getTitleAsHref($breadcrumb)">General info</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Tech Pubs : Docs workflow
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jeff Matthews</span>, last modified on Mar 03, 2017
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>This article explains the content development workflow for the <a href="https://developers.affinipay.com/" class="external-link" rel="nofollow">developer doc site</a>. It covers all roles and responsibilities involved in releasing a new version of the site to production (e.g., Tech Pubs, QA, DevOps).</p><p>The <strong><code><a href="https://bitbucket.org/affinipay/dev-docs/src" class="external-link" rel="nofollow">/dev-docs</a></code></strong> Bitbucket repo is configured with a webhook that triggers a <a href="http://buildocean.qa.affinipay.com/" class="external-link" rel="nofollow">Jenkins</a> build whenever we push changes to the <strong><code>master</code></strong>, <strong><code>qa</code></strong>, and <strong><code>production</code></strong> branches. After a successful build, Jenkins deploys a build archive (in this case a tarball) to <a href="https://console.aws.amazon.com/s3/home?region=us-west-2#&amp;bucket=affinipay-qa&amp;prefix=assets/dev-docs/" class="external-link" rel="nofollow">AWS S3</a>.</p><p>After each build, Jenkins appends a timestamp to the the previous build filename in S3 for each branch (e.g., dev-docs-20161222193705.tar.gz) so that:</p><ul><li>The name of the <em><strong>latest</strong></em> build is always <em><strong>dev-docs.tar.gz</strong></em>, which is important for the deploy script.</li><li>There's a historical record of all previous builds so that we can roll back to a previous version if we ever need to.</li></ul><p>There are <s>three </s>two <a href="https://affinipay.atlassian.net/wiki/display/TP/Doc+Environments?src=contextnavpagetreemode" rel="nofollow">environments</a> where we deploy the site:</p><ul><li><s><strong><a href="http://doctest.dev.affinipay.com/" class="external-link" rel="nofollow">DEV</a></strong> - This is where we manually deploy builds of any branch for internal review before integrating with the <strong><code>master</code></strong> branch.</s></li><li><strong><a href="https://docs.dev.affinipay.com/" class="external-link" rel="nofollow">QA</a></strong> - This is where we manually deploy builds of the <strong><code>master</code></strong> and <strong><code>qa</code></strong> branches for official testing. We can also deploy feature branches here if necessary for stakeholder review. We just need to update the <a href="http://buildocean.qa.affinipay.com/job/dev_docs_review/" class="external-link" rel="nofollow">dev_docs_review</a> Jenkins build to point to the desired branch, then deploy the code from the <strong><code>review</code></strong> bucket using the <a href="https://bitbucket.org/affinipay/ansible-docs-deploy" class="external-link" rel="nofollow">ansible-docs-deploy</a> script.</li><li><strong><a href="https://developers.affinipay.com/" class="external-link" rel="nofollow">PROD</a></strong> - This is where DevOps manually deploys builds of the <strong><code>production</code></strong> branch using the <a href="https://bitbucket.org/affinipay/ansible-docs-deploy" class="external-link" rel="nofollow">ansible-docs-deploy</a> script.</li></ul><h2 id="Docsworkflow-Development">Development</h2><ol><li>Someone (QA, Tech Writer, Solutions Engineer, Management) creates a JIRA issue (e.g., task, story, or bug) for doc work.</li><li>Tech Writer prioritizes the backlog and makes recommendations to Management for sprint planning (i.e., tech writer plans sprints).</li><li>Management adjudicates sprint priorities.</li><li>Tech Writer sizes sprint issues and begins work:<br/><ol><li>Creates a new version tag in JIRA and marks all issues in the sprint with that tag as the <strong>Fix version</strong>.</li><li>Cuts a new branch from <strong><code>master</code></strong> for each JIRA issue according to the preferred naming convention (e.g., <strong><code>feature/TP-123</code></strong>, <strong><code>bug/TP-456</code></strong>).</li><li>Commits and pushes changes to <a href="https://bitbucket.org/affinipay/dev-docs/src/b60cf2bea540459e3e660514ac17d92aeb4b994d?at=20170220_015219" class="external-link" rel="nofollow">Bitbucket</a>. Stakeholder reviews to ensure technical accuracy must be conducted before entering the QA workflow.</li><li><p><span class="inline-comment-marker" data-ref="8b505df7-569d-4d5e-b1f0-0b188f672ed6">Resolves the issue, opens a pull request (PR), and merges into </span><strong><code><span class="inline-comment-marker" data-ref="8b505df7-569d-4d5e-b1f0-0b188f672ed6">master</span></code></strong><span class="inline-comment-marker" data-ref="8b505df7-569d-4d5e-b1f0-0b188f672ed6">.</span> </p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Since there's currently only one Tech Writer, the concept of a component owner as described <a href="https://affinipay.atlassian.net/wiki/display/DEV/JIRA+Workflow" rel="nofollow">here</a> doesn't really apply.</p></div></div></li></ol></li></ol><h2 id="Docsworkflow-Testing">Testing</h2><ol><li>Tech Writer opens a PR (<strong><code>master</code></strong> to <strong><code>qa</code></strong>), adds QA reviewers, and lists all issues in the PR description. *<strong>Don't delete the branch after merging</strong></li><li>QA:<ol><li>Opens an issue to begin testing.</li><li>Approves and merges the PR.</li><li>Deploys the<strong> qa </strong>build archive to the QA environment. <strong>*The Tech Writer has been doing this for QA</strong>.</li><li>Closes TP issues as they test. If there's a problem that requires development, they'll either reopen the TP issue, create a new issue and assign it to the Tech Writer, or notify the Tech Writer to make changes directly on the <strong><code>qa</code></strong> branch. The Tech Writer can merge <strong><code>qa</code></strong> with <strong><code>master</code></strong> later after release.</li><li>After testing and closing all TP issues, creates a PR (<strong><code>qa</code></strong> to <strong><code>production</code></strong>) and adds the Tech Writer as reviewer. *<strong>Don't delete the branch after merging</strong></li></ol></li><li>Tech Writer reviews and approves the PR.</li><li>QA:<ol><li>Merges the PR.</li><li>Deploys the <strong>production</strong> build archive to the QA environment. <strong>*The Tech Writer has been doing this for QA</strong>.</li><li><p>Does a smoke test or otherwise validates that the <strong>production</strong> build matches the <strong>qa</strong> build.</p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>The <a href="http://buildocean.qa.affinipay.com/job/dev_docs_production/" class="external-link" rel="nofollow">dev_docs_production</a> build tags the <strong><code>production</code></strong> branch with the name of the released version (e.g., v<span style="color: rgb(68,68,68);">20161222193705</span>).</p></div></div></li></ol></li></ol><h2 id="Docsworkflow-Release">Release</h2><ol><li>QA opens a JIRA issue for DevOps to deploy the production build archive to the production environment.</li><li>DevOps manually deploys the production build archive to the production environment.</li><li>QA verifies changes in production and notifies DevOps.</li><li>DevOps closes the issue.</li></ol><p>Related articles</p><p></p><p>
+
+
+
+
+
+
+
+
+
+
+
+<ul class="content-by-label">
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                        <a href="/wiki/pages/viewpage.action?pageId=74225275">Grant OAuth 2 app permission (Postman)</a>
+                
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                        <a href="/wiki/display/TP/Deleting+saved+user+inputs+from+a+Yeoman+generator">Deleting saved user inputs from a Yeoman generator</a>
+                
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                        <a href="/wiki/display/TP/Test+Site+Performance">Test Site Performance</a>
+                
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                        <a href="/wiki/pages/viewpage.action?pageId=72552163">Set Up Basic Authentication (Postman)</a>
+                
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                        <a href="/wiki/display/TP/Manually+deploy+doc+site">Manually deploy doc site</a>
+                
+                        
+                    </div>
+    </li>
+    </ul>
+</p>
+                    </div>
+
+                    
+                 
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 19, 2017 09:39</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

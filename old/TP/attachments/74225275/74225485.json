@@ -1,0 +1,88 @@
+{
+  "id": "1808c084-c9eb-3d59-980f-108ca65a9e91",
+  "name": "AffiniPay",
+  "values": [
+    {
+      "enabled": true,
+      "key": "client_id",
+      "value": "",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "client_secret",
+      "value": "",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "client_secret_base64",
+      "value": "",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "client_public_base64",
+      "value": "",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "merchant_accountId",
+      "value": "",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "ach_accountId",
+      "value": "",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "card_accountId",
+      "value": "",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "token_chargeio",
+      "value": "",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "token_tenant",
+      "value": "",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "partner_specific_plan_id",
+      "value": "",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "grant_type",
+      "value": "",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "redirect_uri",
+      "value": "",
+      "type": "text"
+    },
+    {
+      "enabled": true,
+      "key": "code",
+      "value": "",
+      "type": "text"
+    }
+  ],
+  "timestamp": 1490378650062,
+  "_postman_variable_scope": "environment",
+  "_postman_exported_at": "2017-03-27T18:11:15.537Z",
+  "_postman_exported_using": "Postman/4.10.4"
+}

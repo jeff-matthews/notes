@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tech Pubs : Competitive Research</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Tech Pubs</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="$exportUtils.getTitleAsHref($breadcrumb)">Tech Pubs</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="$exportUtils.getTitleAsHref($breadcrumb)">Planning</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="$exportUtils.getTitleAsHref($breadcrumb)">Developer Landing Page</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Tech Pubs : Competitive Research
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jeff Matthews</span>, last modified on May 02, 2017
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p><style type='text/css'>/*<![CDATA[*/
+div.rbtoc1495204778596 {padding: 0px;}
+div.rbtoc1495204778596 ul {list-style: disc;margin-left: 0px;}
+div.rbtoc1495204778596 li {margin-left: 0px;padding-left: 0px;}
+
+/*]]>*/</style><div class='toc-macro rbtoc1495204778596'>
+<ul class='toc-indentation'>
+<li><a href='#CompetitiveResearch-Competitors'>Competitors</a></li>
+<li><a href='#CompetitiveResearch-CommonDesignPatterns'>Common Design Patterns</a>
+<ul class='toc-indentation'>
+<li><a href='#CompetitiveResearch-Structuralcomponents'>Structural components</a></li>
+<li><a href='#CompetitiveResearch-Backgroundgraphic'>Background graphic</a></li>
+<li><a href='#CompetitiveResearch-Contenttypes'>Content types</a></li>
+<li><a href='#CompetitiveResearch-Search'>Search</a></li>
+<li><a href='#CompetitiveResearch-Signin/Signup'>Sign in/Sign up</a></li>
+<li><a href='#CompetitiveResearch-Help&amp;support'>Help &amp; support</a></li>
+</ul>
+</li>
+<li><a href='#CompetitiveResearch-Recommendations'>Recommendations</a>
+<ul class='toc-indentation'>
+<li><a href='#CompetitiveResearch-Structuralcomponents.1'>Structural components</a></li>
+<li><a href='#CompetitiveResearch-Backgroundgraphic.1'>Background graphic</a></li>
+<li><a href='#CompetitiveResearch-Contenttypes.1'>Content types</a></li>
+<li><a href='#CompetitiveResearch-Search.1'>Search</a></li>
+<li><a href='#CompetitiveResearch-Signin/Signup.1'>Sign in/Sign up</a></li>
+<li><a href='#CompetitiveResearch-Help&amp;support.1'>Help &amp; support</a></li>
+<li><a href='#CompetitiveResearch-Userinteractionanddesign'>User interaction and design</a></li>
+</ul>
+</li>
+</ul>
+</div></p><p>The developer landing page represents an important opportunity for us to make a good impression on prospective and current developers; an opportunity that we're not fully leveraging. Comprehensive documentation that's easy to navigate is paramount to fostering a perception of a well-supported product/platform, which helps drive more wide-spread adoption among developers.</p><p>Our current developer landing page design fails to promote all of the other documentation resources we offer, including API tutorials, API reference, and code libraries. We must provide a better experience for developers visiting the site, especially when comparing ourselves to competitors. Prospective and current developers should be able to quickly find the same resources they've come to expect from other platforms on the AffiniPay landing page.</p><p>This report summarizes popular design patterns across developer landing pages for competing platforms and provides recommendations for the AffiniPay developer landing page based on an analysis of these patterns. </p><h2 id="CompetitiveResearch-Competitors">Competitors</h2><p>Source material for this report comes from the following competitors' developer landing pages:</p><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup><col/><col/><col/></colgroup><tbody><tr><th class="confluenceTh">Platform</th><th class="confluenceTh">Landing page URL</th><th colspan="1" class="confluenceTh">Feature(s)</th></tr><tr><td class="confluenceTd">Stripe</td><td class="confluenceTd"><a href="https://stripe.com/docs" class="external-link" rel="nofollow">https://stripe.com/docs</a></td><td colspan="1" class="confluenceTd"><ul><li>Payment processing</li><li>Subscription management</li></ul></td></tr><tr><td colspan="1" class="confluenceTd">Braintree</td><td colspan="1" class="confluenceTd"><a href="https://developers.braintreepayments.com/" class="external-link" rel="nofollow">https://developers.braintreepayments.com/</a></td><td colspan="1" class="confluenceTd">Payment processing</td></tr><tr><td class="confluenceTd">Zuora</td><td class="confluenceTd"><a href="https://www.zuora.com/developer/" class="external-link" rel="nofollow">https://www.zuora.com/developer/</a></td><td colspan="1" class="confluenceTd">Subscription management</td></tr><tr><td class="confluenceTd">Invoiced</td><td class="confluenceTd"><a href="https://invoiced.com/docs/dev" class="external-link" rel="nofollow">https://invoiced.com/docs/dev</a></td><td colspan="1" class="confluenceTd"><ul><li>Payment processing</li><li>Invoice management</li><li>Subscription management</li></ul></td></tr><tr><td class="confluenceTd">Adyen</td><td class="confluenceTd"><a href="https://docs.adyen.com/developers" class="external-link" rel="nofollow">https://docs.adyen.com/developers</a></td><td colspan="1" class="confluenceTd"><ul><li>Payment processing</li><li>Subscription management</li></ul></td></tr><tr><td class="confluenceTd">Recurly</td><td class="confluenceTd"><a href="https://dev.recurly.com/" class="external-link" rel="nofollow">https://dev.recurly.com/</a></td><td colspan="1" class="confluenceTd"><span>Subscription management</span></td></tr><tr><td colspan="1" class="confluenceTd">Chargify</td><td colspan="1" class="confluenceTd"><a href="https://developer.chargify.com/" class="external-link" rel="nofollow">https://developer.chargify.com/</a></td><td colspan="1" class="confluenceTd"><span>Subscription management</span></td></tr><tr><td colspan="1" class="confluenceTd">Dwolla</td><td colspan="1" class="confluenceTd"><a href="https://developers.dwolla.com" class="external-link" rel="nofollow">https://developers.dwolla.com</a></td><td colspan="1" class="confluenceTd">Payment processing (ACH only)</td></tr><tr><td colspan="1" class="confluenceTd">Clover</td><td colspan="1" class="confluenceTd"><a href="https://www.clover.com/developers" class="external-link" rel="nofollow">https://www.clover.com/developers</a></td><td colspan="1" class="confluenceTd">Payment processing</td></tr></tbody></table></div><p><br/>All nine landing pages specifically address a developer audience for a payment processing and/or subscription management platform.</p><h2 id="CompetitiveResearch-CommonDesignPatterns">Common Design Patterns</h2><p>All landing pages sampled in this report share similar design patterns, notwithstanding a few minor exceptions, in terms of layout, information architecture, and functionality. </p><h3 id="CompetitiveResearch-Structuralcomponents">Structural components</h3><p>Only three pages employ the sidebar component (e.g., Stripe, Invoiced, Chargify) at the developer landing page level. The remaining five pages employ a header + body + footer layout and reserve the additional sidebar component for documentation subpages.</p><p>This table summarizes structural components across pages and denotes the distribution of pages using certain component elements:</p><div class="table-wrap"><table class="relative-table wrapped confluenceTable" style="width: 46.9447%;"><colgroup><col style="width: 20.4969%;"/><col style="width: 79.5031%;"/></colgroup><tbody><tr><th class="confluenceTh">Component</th><th class="confluenceTh">Description</th></tr><tr><td class="confluenceTd">Header</td><td class="confluenceTd"><p>Contains:</p><ul><li>Logo (9)</li><li>Support resources (7)</li><li>Sign in/sign up (6)</li><li>Site search (5)</li><li>Content type subpages (4)</li></ul></td></tr><tr><td colspan="1" class="confluenceTd">Sidebar</td><td colspan="1" class="confluenceTd">Contains full developer site content navigation (3)</td></tr><tr><td class="confluenceTd">Body</td><td class="confluenceTd"><p>Contains:</p><ul><li>Above-the-fold background graphic with tag line (5)</li><li>Cards/tiles/lists that link to content type subpages (8)</li></ul></td></tr><tr><td class="confluenceTd">Footer</td><td class="confluenceTd"><p>Contains:</p><ul><li><span>About + Ts&amp;Cs/Disclaimer + Copyright + </span>Pseudo-sitemap (5)</li><li>About + Ts&amp;Cs/Disclaimer + Copyright only (4)</li><li>No footer content at all (3)</li></ul></td></tr></tbody></table></div><h3 id="CompetitiveResearch-Backgroundgraphic">Background graphic</h3><p>Five of the landing pages sampled in this report include an &quot;a<span>bove-the-fold&quot; background graphic with a tag line in the body component. See the screenshots in the following <em>Content types</em> section for examples.</span></p><h3 id="CompetitiveResearch-Contenttypes">Content types</h3><p>Eight pages provided links to the following content types (predominantly in the body component):</p><ul><li>Getting started</li><li>Integration methods</li><li>API tutorials</li><li>API reference</li><li>Code samples &amp; libraries</li></ul><p>Links are represented by cards, tiles, graphics, or lists in the body component; usually about half-way down the page, but &quot;above-the-fold.&quot;</p><p>For example, here's an example of cards/tiles that link to subpages about different integration methods to help guide the user experience:</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="attachments/73891896/73907926.png?height=250" data-image-src="attachments/73891896/73907926.png" data-unresolved-comment-count="0" data-linked-resource-id="73907926" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="adyen-cards.png" data-base-url="https://affinipay.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="73891896" data-linked-resource-container-version="26" data-media-id="7f4c3fb6-7119-4cb3-b359-215663ba070f" data-media-type="file"></span></p><p>Here's an example of cards/tiles that link to a getting started guide, API reference, API tutorials, and code libraries:</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="attachments/73891896/73907976.png?height=250" data-image-src="attachments/73891896/73907976.png" data-unresolved-comment-count="0" data-linked-resource-id="73907976" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="zuora-cards.png" data-base-url="https://affinipay.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="73891896" data-linked-resource-container-version="26" data-media-id="df00f7e7-2793-4760-a73f-685a0993ab46" data-media-type="file"></span></p><p>Here's an example of lists that link to all site subpages, which includes a getting started guide, API reference, API tutorials, code libraries, etc. It's essentially the same approach as the sidebar component that Stripe, Invoiced, and Chargify employ, only it's in the body component &quot;below-the-fold.&quot;</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="attachments/73891896/73908043.png?height=250" data-image-src="attachments/73891896/73908043.png" data-unresolved-comment-count="0" data-linked-resource-id="73908043" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="recurly-list.png" data-base-url="https://affinipay.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="73891896" data-linked-resource-container-version="26" data-media-id="06d52274-fa11-4ac5-8433-92402a725f65" data-media-type="file"></span></p><h3 id="CompetitiveResearch-Search">Search</h3><p>Six of the pages sampled in this report include a search box in the header component. Search functionality varies from robust (type-ahead with results dynamically populating a drop-down [Stripe]) to basic (enter a search term, press enter, and view a separate page of results [Adyen]) to nonexistent (Zuora).</p><ul><li>Robust - 3</li><li>Basic - 3</li><li>None - 3</li></ul><h3 id="CompetitiveResearch-Signin/Signup">Sign in/Sign up</h3><p>Six of the landing pages sampled in this report include a <strong>Sign in </strong>button (or some variation thereof) in the header component. It's unclear how this might impact site functionality in all cases. For example, does signing in provide interactive API support or does it simply take you to the platform &quot;dashboard&quot; for performing administrative tasks? More research is required.</p><h3 id="CompetitiveResearch-Help&amp;support">Help &amp; support</h3><p>Seven of the landing pages sampled in this report include links to support resources in the header component. Resources range from a contact form or mailto: link for support inquiries to a link to a separate page of options including contact information and forum and knowledgebase access.</p><h2 id="CompetitiveResearch-Recommendations">Recommendations</h2><p>It would be beneficial to incorporate some of the common design patterns discussed in this report into the AffiniPay developer landing page. The following sections provide guidance on some preliminary design requirements.</p><h3 id="CompetitiveResearch-Structuralcomponents.1">Structural components</h3><p>Use header + body + footer components and reserve the sidebar component for documentation subpages.</p><p>This table recommends which elements to use in each component:</p><div class="table-wrap"><table class="relative-table wrapped confluenceTable" style="width: 482.0px;"><colgroup><col style="width: 0.0px;"/><col style="width: 0.0px;"/></colgroup><tbody><tr><th class="confluenceTh">Component</th><th class="confluenceTh">Description</th></tr><tr><td class="confluenceTd">Header</td><td class="confluenceTd"><ul><li>Logo</li><li>Support resources (drop-down w/ links)</li><li>Sign in/sign up</li><li>Site search</li></ul></td></tr><tr><td colspan="1" class="confluenceTd">Sidebar</td><td colspan="1" class="confluenceTd">Full developer site content navigation. Only accessible from site subpages.</td></tr><tr><td class="confluenceTd">Body</td><td class="confluenceTd"><ul><li>Above-the-fold background graphic with tag line</li><li>Choose an integration type</li><li>Cards with graphics that link to content type subpages</li></ul></td></tr><tr><td class="confluenceTd">Footer</td><td class="confluenceTd"><p>About + Ts&amp;Cs/Disclaimer + Copyright only</p></td></tr></tbody></table></div><h3 id="CompetitiveResearch-Backgroundgraphic.1">Background graphic</h3><p>We're currently using a background graphic that has a parallax effect when scrolling. There's just not enough content on the page to require scrolling, so the effect is lost.</p><p><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="attachments/73891896/73959832.png?height=250" data-image-src="attachments/73891896/73959832.png" data-unresolved-comment-count="0" data-linked-resource-id="73959832" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="affinipay-background.png" data-base-url="https://affinipay.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="73891896" data-linked-resource-container-version="26" data-media-id="9b326b9e-4eac-4dd6-9a65-dbe8e06fd535" data-media-type="file"></span></p><p>We should still endeavor to guide the user experience by asking them to choose an integration path before we show cards for other content types, like we currently do and like Adyen does, but I think we should provide some sort of interactive diagram that shows developers what each integration method entails when they click something. For example, if I clicked a &quot;payment form&quot; icon, only elements pertinent to that method come to the forefront and everything else drops to the background. This preserves the context for all other methods and helps show how methods are related.</p><p>Another idea is to create an interactive experience based on a binary decision tree. For example, a user clicks &quot;Help me decide which integration is right for me&quot; and we present them with two options. After they click an option, we can present them with another set of options until we've determined the best integration path based on their inputs. From there, we can drop them on the diagram with an integration path already selected so they can see a system overview.</p><p>Although it's not currently complete and needs more work, the transaction lifecycle diagram would be a good start for a &quot;how does it work/choose your journey&quot; interactive diagram:</p><p><em><strong>Note:</strong> This diagram includes hotspots that, when clicked, reveal explanatory text. <a href="https://www.lucidchart.com/invitations/accept/964ecb69-e96c-4c1c-87db-fda184f2c8f1" class="external-link" rel="nofollow">Open the diagram in Lucid Charts</a>, select the Presentation view, and click each entity for pop-up descriptions.</em></p><p><div class="ap-container" id="ap-com.lucidchart.confluence.plugins.lucid-confluence__lucidchart5182548736230191502">
+
+  <div class="ap-content" id="embedded-com.lucidchart.confluence.plugins.lucid-confluence__lucidchart5182548736230191502"></div>
+  <script class="ap-iframe-body-script">
+  (function(){
+    var data = {
+    "addon_key":"com.lucidchart.confluence.plugins.lucid-confluence",
+    "uniqueKey":"com.lucidchart.confluence.plugins.lucid-confluence__lucidchart5182548736230191502",
+    "key":"lucidchart",
+    "cp":"/wiki",
+    "uid":"jmatthews",
+    "ukey":"ff80808154b832390154bad052100003",
+    "general":"",
+    "w":"",
+    "h":"",
+    "url":"https://www.lucidchart.com/ac/confluence/viewer?documentId=2399b97d-9be2-495d-943b-a88dfba59a72&name=&macroId=6cac7753-faa8-4fe4-d6d4-d39b8142c712&pages=1&pageCount=5&type=rich&width=700&height=500&autoSize=1&align=left&p_id=73891896&output_type=html_export&tz=America%2FChicago&loc=en-GB&user_id=jmatthews&user_key=ff80808154b832390154bad052100003&xdm_e=https%3A%2F%2Faffinipay.atlassian.net&xdm_c=channel-com.lucidchart.confluence.plugins.lucid-confluence__lucidchart5182548736230191502&cp=%2Fwiki&xdm_deprecated_addon_key_do_not_use=com.lucidchart.confluence.plugins.lucid-confluence&lic=none&cv=1.3.7&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmZjgwODA4MTU0YjgzMjM5MDE1NGJhZDA1MjEwMDAwMyIsInFzaCI6IjI4NTQ2N2Q0OTNjOTJmNzNjNmFjOTFjYzY0OTMzZWYwMDNiMDY5OGI2OGNjODNmODQzNWU4NTA4MmE1MGM5OTQiLCJpc3MiOiJDb25mbHVlbmNlOjIwOTY5MzU5ODEiLCJjb250ZXh0Ijp7InVzZXIiOnsidXNlcktleSI6ImZmODA4MDgxNTRiODMyMzkwMTU0YmFkMDUyMTAwMDAzIiwidXNlcm5hbWUiOiJqbWF0dGhld3MiLCJkaXNwbGF5TmFtZSI6IkplZmYgTWF0dGhld3MifX0sImV4cCI6MTQ5NTIwNDk1OCwiaWF0IjoxNDk1MjA0Nzc4fQ.BAzVkeQ4WsYv2XZShIeiPKYMAqlcdEEv5YCLsdaUKds",
+    "contentClassifier":"content",
+    "productCtx":"{\"macro.hash\":\"84b8c8bc-d043-4698-a2ac-07e501f447ec\",\"page.id\":\"73891896\",\"page.type\":\"page\",\": = | RAW | = :\":\"autoSize=1|macroId=6cac7753-faa8-4fe4-d6d4-d39b8142c712|pageCount=5|instanceId=Confluence:2096935981|pages=1|width=700|documentId=2399b97d-9be2-495d-943b-a88dfba59a72|align=left|type=rich|updated=1493302028856|height=500\",\"space.id\":\"28835842\",\"align\":\"left\",\"type\":\"rich\",\"autoSize\":\"1\",\"instanceId\":\"Confluence:2096935981\",\"pages\":\"1\",\"height\":\"500\",\"pageCount\":\"5\",\"space.key\":\"TP\",\"user.id\":\"jmatthews\",\"page.title\":\"Competitive Research\",\"macro.body\":\"\",\"macro.truncated\":\"false\",\"output.type\":\"html_export\",\"page.version\":\"26\",\"user.key\":\"ff80808154b832390154bad052100003\",\"macroId\":\"6cac7753-faa8-4fe4-d6d4-d39b8142c712\",\"width\":\"700\",\"macro.id\":\"84b8c8bc-d043-4698-a2ac-07e501f447ec\",\"documentId\":\"2399b97d-9be2-495d-943b-a88dfba59a72\",\"updated\":\"1493302028856\"}",
+    "timeZone":"America/Chicago",
+    "origin":"https://www.lucidchart.com",
+    "hostOrigin":"https://affinipay.atlassian.net"
+};
+    if(window.AP && window.AP.subCreate) {
+      window._AP.appendConnectAddon(data);
+    } else {
+      require(['ac/create'], function(create){
+        create.appendConnectAddon(data);
+      });
+    }
+  }());
+</script>
+</div>
+</p><h3 id="CompetitiveResearch-Contenttypes.1">Content types</h3><p>No changes to our current content types are necessary. We already provide all the resources developers expect. The purpose of the landing page redesign is to make these resources more visible.</p><p>We should add cards for the following content types in the body component:</p><ul><li>Getting started</li><li>Integration methods (interactive diagram)</li><li>API tutorials</li><li>API reference</li><li>Code samples &amp; libraries</li></ul><p>We may need to create a pseudo landing page for the API tutorials since there are multiple pages associated with tutorials. We can link directly to a single page for all other content types.</p><h3 id="CompetitiveResearch-Search.1">Search</h3><p>Our current search solution (<a href="https://lunrjs.com/" class="external-link" rel="nofollow">lunr.js</a>) is sufficient for now. Eventually, it'd be nice to have a more robust search solution with a type-ahead feature like Stripe, but that's either expensive (<a href="https://swiftype.com/" class="external-link" rel="nofollow">Swiftype</a>) or requires time for custom development.</p><h3 id="CompetitiveResearch-Signin/Signup.1">Sign in/Sign up</h3><p>Ideally, a sign-in button would authenticate a developer, retrieve their API keys, and redirect them to the doc site where they could try out the API through an interactive console. In the absence of that functionality, we can either:</p><ol><li>Redirect to a new page explaining the VT dashboard, other product flavors (e.g., lawpay, cpacharge), and provide a link to sign up if they don't have an account.</li><li>Redirect to <a href="https://secure.affinipay.com." class="external-link" rel="nofollow">https://secure.affinipay.com.</a> I'm not sure there's a lot of value in providing a sign-in link in the latter case, but it seems to be a common design pattern among competitors.</li></ol><h3 id="CompetitiveResearch-Help&amp;support.1">Help &amp; support</h3><p>Add a drop-down menu in the header component with the following links:</p><ul><li>Dev support email</li><li>FAQ</li><li>Support knowledgebase</li></ul><p>This would also be a good place for a future troubleshooting section that explains common issues and how to work around them.</p><h3 id="CompetitiveResearch-Userinteractionanddesign">User interaction and design</h3><p>Wireframes showing proposed information architecture and page layout:</p><p><div class="ap-container" id="ap-com.lucidchart.confluence.plugins.lucid-confluence__lucidchart5830635758700329912">
+
+  <div class="ap-content" id="embedded-com.lucidchart.confluence.plugins.lucid-confluence__lucidchart5830635758700329912"></div>
+  <script class="ap-iframe-body-script">
+  (function(){
+    var data = {
+    "addon_key":"com.lucidchart.confluence.plugins.lucid-confluence",
+    "uniqueKey":"com.lucidchart.confluence.plugins.lucid-confluence__lucidchart5830635758700329912",
+    "key":"lucidchart",
+    "cp":"/wiki",
+    "uid":"jmatthews",
+    "ukey":"ff80808154b832390154bad052100003",
+    "general":"",
+    "w":"",
+    "h":"",
+    "url":"https://www.lucidchart.com/ac/confluence/viewer?documentId=b55f183b-69ec-47e8-a1d8-90f9514be9e1&name=&macroId=517ee783-8d2b-4320-a146-5dc9fdc262bc&pages=&pageCount=1&type=rich&width=700&height=500&autoSize=1&align=left&p_id=73891896&output_type=html_export&tz=America%2FChicago&loc=en-GB&user_id=jmatthews&user_key=ff80808154b832390154bad052100003&xdm_e=https%3A%2F%2Faffinipay.atlassian.net&xdm_c=channel-com.lucidchart.confluence.plugins.lucid-confluence__lucidchart5830635758700329912&cp=%2Fwiki&xdm_deprecated_addon_key_do_not_use=com.lucidchart.confluence.plugins.lucid-confluence&lic=none&cv=1.3.7&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmZjgwODA4MTU0YjgzMjM5MDE1NGJhZDA1MjEwMDAwMyIsInFzaCI6ImVhYzZlYWYxYmFjOWUzNDMyYTM2MjZhYzFjNGE0MDQ1NzA2YWU4NGM5NjQzYzlmY2Q0YTNhMTgzNjYzZDRiYWIiLCJpc3MiOiJDb25mbHVlbmNlOjIwOTY5MzU5ODEiLCJjb250ZXh0Ijp7InVzZXIiOnsidXNlcktleSI6ImZmODA4MDgxNTRiODMyMzkwMTU0YmFkMDUyMTAwMDAzIiwidXNlcm5hbWUiOiJqbWF0dGhld3MiLCJkaXNwbGF5TmFtZSI6IkplZmYgTWF0dGhld3MifX0sImV4cCI6MTQ5NTIwNDk1OCwiaWF0IjoxNDk1MjA0Nzc4fQ.N_KnO1Ko4zh-5XMla4jn48UlKyUPP2ICW3bTHS19VkQ",
+    "contentClassifier":"content",
+    "productCtx":"{\"macro.hash\":\"4dbe2d3d-074d-4b83-930a-dc8563720c83\",\"page.id\":\"73891896\",\"page.type\":\"page\",\": = | RAW | = :\":\"autoSize=1|macroId=517ee783-8d2b-4320-a146-5dc9fdc262bc|pageCount=1|instanceId=Confluence:2096935981|pages=|width=700|documentId=b55f183b-69ec-47e8-a1d8-90f9514be9e1|align=left|type=rich|updated=1493660126800|height=500\",\"space.id\":\"28835842\",\"align\":\"left\",\"type\":\"rich\",\"autoSize\":\"1\",\"instanceId\":\"Confluence:2096935981\",\"pages\":\"\",\"height\":\"500\",\"pageCount\":\"1\",\"space.key\":\"TP\",\"user.id\":\"jmatthews\",\"page.title\":\"Competitive Research\",\"macro.body\":\"\",\"macro.truncated\":\"false\",\"output.type\":\"html_export\",\"page.version\":\"26\",\"user.key\":\"ff80808154b832390154bad052100003\",\"macroId\":\"517ee783-8d2b-4320-a146-5dc9fdc262bc\",\"width\":\"700\",\"macro.id\":\"4dbe2d3d-074d-4b83-930a-dc8563720c83\",\"documentId\":\"b55f183b-69ec-47e8-a1d8-90f9514be9e1\",\"updated\":\"1493660126800\"}",
+    "timeZone":"America/Chicago",
+    "origin":"https://www.lucidchart.com",
+    "hostOrigin":"https://affinipay.atlassian.net"
+};
+    if(window.AP && window.AP.subCreate) {
+      window._AP.appendConnectAddon(data);
+    } else {
+      require(['ac/create'], function(create){
+        create.appendConnectAddon(data);
+      });
+    }
+  }());
+</script>
+</div>
+</p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/73891896/73907926.png">adyen-cards.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/73891896/73907976.png">zuora-cards.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/73891896/73908043.png">recurly-list.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/73891896/73959832.png">affinipay-background.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                 
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 19, 2017 09:39</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tech Pubs : Subdomain vs Subdirectory</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Tech Pubs</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="$exportUtils.getTitleAsHref($breadcrumb)">Tech Pubs</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="$exportUtils.getTitleAsHref($breadcrumb)">Planning</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Tech Pubs : Subdomain vs Subdirectory
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jeff Matthews</span>, last modified on Aug 11, 2016
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>According to <a href="https://youtu.be/_MswMYk05tk" class="external-link" rel="nofollow">Matt Cutts</a> (Head of Google Webspam team), Google's Page Rank algorithm gives root domains and subdomains &quot;roughly&quot; equal weight where SEO is concerned. For example, <a href="https://affinipay.com/developers" class="external-link" rel="nofollow">https://affinipay.com/developers</a> and <a href="https://developers.affinipay.com" class="external-link" rel="nofollow">https://developers.affinipay.com</a> are treated &quot;roughly&quot; the same. I found articles disputing that statement from SEO aficionados, but I think the bottom line for us is to use subdomains for the following reasons:</p><ul><li>Stephen prefers the clarity that the subdomain invokes for developer documentation.</li><li>The DNS subdomain and web server to host files is already configured and ready to use. </li><li>Since we're using separate systems to generate and manage content on the main site and developer doc site (Wordpress &amp; Jekyll respectively), it may not be practical or technically possible to use a subdirectory. We know there's no conflict using a subdomain in this regard; we can't say the same for subdirectories without further investigation.</li><li>Even if using subdirectories is technically feasible, it will most likely complicate the release management process for doc updates (e.g., introducing risk to our main sites). Using a subdomain enables us to deploy doc updates to production on an ad hoc basis, which is important, without impacting the availability of our main website(s).</li><li>Using a subdomain gives us an opportunity to establish, cultivate, and control a &quot;developer&quot; brand that may not otherwise be accommodated through normal marketing channels.</li><li>Subdirectory leads to bad UX. The new doc site design differs greatly from the main site.</li></ul><h2 id="SubdomainvsSubdirectory-References:"><strong style="font-size: 14.0px;line-height: 1.42857;">References:</strong></h2><ul><li><a href="https://moz.com/blog/subdomains-vs-subfolders-rel-canonical-vs-301-how-to-structure-links-optimally-for-seo-whiteboard-friday" class="external-link" rel="nofollow">https://moz.com/blog/subdomains-vs-subfolders-rel-canonical-vs-301-how-to-structure-links-optimally-for-seo-whiteboard-friday</a></li><li><a href="https://moz.com/community/q/the-great-subdomain-vs-subfolder-debate-what-is-the-best-answer" class="external-link" rel="nofollow">https://moz.com/community/q/the-great-subdomain-vs-subfolder-debate-what-is-the-best-answer</a></li><li><a href="http://www.brightpod.com/blog/seo-myth-using-subdomain-blog-bad-seo/" class="external-link" rel="nofollow">http://www.brightpod.com/blog/seo-myth-using-subdomain-blog-bad-seo/</a></li><li><a href="http://www.scribewise.com/blog/bid/377702/SEO-Insight-The-Purposes-and-Benefits-of-Using-Subdomains" class="external-link" rel="nofollow">http://www.scribewise.com/blog/bid/377702/SEO-Insight-The-Purposes-and-Benefits-of-Using-Subdomains</a></li><li><a href="http://www.ameravant.com/article/3398-subdomains-and-seo-pros-and-cons-of-subdomains-vs-subdirectories" class="external-link" rel="nofollow">http://www.ameravant.com/article/3398-subdomains-and-seo-pros-and-cons-of-subdomains-vs-subdirectories</a></li><li><a href="https://mainpath.com/putting-end-to-subdomains-vs-subdirectories-debate/" class="external-link" rel="nofollow">https://mainpath.com/putting-end-to-subdomains-vs-subdirectories-debate/</a></li></ul><p> </p>
+                    </div>
+
+                    
+                 
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 19, 2017 09:39</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

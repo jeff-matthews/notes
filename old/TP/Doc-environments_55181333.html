@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tech Pubs : Doc environments</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Tech Pubs</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="$exportUtils.getTitleAsHref($breadcrumb)">Tech Pubs</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="$exportUtils.getTitleAsHref($breadcrumb)">General info</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Tech Pubs : Doc environments
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jeff Matthews</span>, last modified on Mar 02, 2017
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>There are three environments where we deploy the <strong><code>/dev-docs</code></strong> site:</p><ul><li><s><strong>DEV</strong> - This where we deploy builds of <strong><code>feature/bug</code></strong> branches for internal review and other testing shenanigans that we want to keep off <strong><code>master</code></strong>.</s></li><li><strong>QA</strong> - This is where we deploy builds of the <strong><code>master</code></strong> and <strong><code>qa</code></strong> branches after integrating features and bugs. We can also deploy <strong><code>review</code></strong> builds here when necessary for internal stakeholder review.</li><li><strong>PROD</strong> - This is where we deploy builds of the <strong><code>production</code></strong> branch after we merge <strong><code>master</code></strong>.</li></ul><h2 id="Docenvironments-DEV"><s>DEV</s></h2><p><s>The purpose of this environment is to get stakeholders to review content for technical accuracy before merging a <strong><code>feature/bug</code></strong> into <strong><code>master</code></strong>. We can also use this environment to test other site-wide changes. You must <a href="https://affinipay.atlassian.net/wiki/display/TP/Manually+Deploy+Dev+Doc+Site+to+QA?src=contextnavpagetreemode" rel="nofollow">manually deploy</a> build archives to this environment because no cron jobs are running.</s></p><ul><li><s><strong>IP address:</strong> TBD talk to Trevor about gaining access to the dev-sandbox AWS console to initialize. once initialized, set security so anyone in the office can access as long as they're on the office network</s></li><li><s><strong>domain name:</strong> </s></li></ul><h2 id="Docenvironments-QA">QA</h2><p>The purpose of this environment is to formally test <strong><code>features/bugs</code></strong> that have been merged into the <strong><code>master</code></strong> branch. Merges to <strong><code>master</code></strong> kick off a Jenkins build. You must <a href="https://affinipay.atlassian.net/wiki/display/TP/Manually+Deploy+Dev+Doc+Site+to+QA?src=contextnavpagetreemode" rel="nofollow">manually deploy</a> build archives to this environment because no cron jobs are running.</p><ul><li><strong>IP address: </strong>172.30.68.227</li><li><strong>domain name: </strong><a href="https://docs.qa.affinipay.com" class="external-link" rel="nofollow">docs.qa.affinipay.com</a></li></ul><h2 id="Docenvironments-Production">Production</h2><p>The purpose of this environment is to publish <a href="https://affinipay.atlassian.net/projects/TP?selectedItem=com.atlassian.jira.jira-projects-plugin:release-page" class="external-link" rel="nofollow">releases</a> to the live site (i.e., <strong><code>feature/bug</code></strong> &gt; <strong><code>master</code></strong> &gt; <strong><code>qa</code></strong> &gt; <strong><code>production</code></strong>)</p><ul><li><strong>IP address: </strong>N/A (only DevOps needs it and has access)</li><li><strong>domain name: </strong><a href="https://developers.affinipay.com/" class="external-link" rel="nofollow">developers.affinipay.com</a></li></ul><p><br/></p><p>Related articles</p><p></p><p>
+
+
+
+
+
+
+
+
+
+
+
+<ul class="content-by-label">
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                        <a href="/wiki/pages/viewpage.action?pageId=74225275">Grant OAuth 2 app permission (Postman)</a>
+                
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                        <a href="/wiki/display/TP/Deleting+saved+user+inputs+from+a+Yeoman+generator">Deleting saved user inputs from a Yeoman generator</a>
+                
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                        <a href="/wiki/display/TP/Test+Site+Performance">Test Site Performance</a>
+                
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                        <a href="/wiki/pages/viewpage.action?pageId=72552163">Set Up Basic Authentication (Postman)</a>
+                
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                        <a href="/wiki/display/TP/Manually+deploy+doc+site">Manually deploy doc site</a>
+                
+                        
+                    </div>
+    </li>
+    </ul>
+</p>
+                    </div>
+
+                    
+                 
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 19, 2017 09:39</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tech Pubs : Test Site Performance</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Tech Pubs</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="$exportUtils.getTitleAsHref($breadcrumb)">Tech Pubs</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="$exportUtils.getTitleAsHref($breadcrumb)">How-to articles</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Tech Pubs : Test Site Performance
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jeff Matthews</span>, last modified on Mar 07, 2017
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Running a site through Google's <a href="https://developers.google.com/speed/pagespeed/insights/" class="external-link" rel="nofollow">PageSpeed Insights</a> tool is a handy way to check how performant it is. Just enter a web URL in the text box and click <strong>Analyze</strong>. To test how local development changes impact performance, you'll need to expose your local web server to the internet. There are lots of tools to help you do that securely, but we're going to use <a href="https://ngrok.com/" class="external-link" rel="nofollow">ngrok</a> in this guide.</p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>This article assumes you know how to build the <a href="https://bitbucket.org/affinipay/dev-docs/src" class="external-link" rel="nofollow">dev-doc</a> site. You have to do that first before proceeding with this guide.</p></div></div><h2 id="TestSitePerformance-Ngrok">Ngrok</h2><ol><li><a href="https://ngrok.com/download" class="external-link" rel="nofollow">Download</a> ngrok.</li><li>Unzip the archive to a directory (e.g., Downloads).</li><li>Open a terminal and navigate to the directory where you unpacked the ngrok archive (e.g., <code>cd ~/Downloads</code>).</li><li><p>Expose your local development web server to the internet with this command; where <code>&lt;port#&gt;</code> is the port your local web server is listening on (e.g., <a href="http://localhost" class="external-link" rel="nofollow">http://localhost</a>:<strong>3000</strong>/): <code>./ngrok http &lt;port#&gt;</code><code><br/></code></p></li><li><p>Copy one of the <strong>Forwarding</strong> URLs:</p><span class="confluence-embedded-file-wrapper"><img class="confluence-embedded-image" src="attachments/72651799/72651931.png" data-image-src="attachments/72651799/72651931.png" data-unresolved-comment-count="0" data-linked-resource-id="72651931" data-linked-resource-version="1" data-linked-resource-type="attachment" data-linked-resource-default-alias="ngrok.png" data-base-url="https://affinipay.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="72651799" data-linked-resource-container-version="8" data-media-id="48ca3818-da73-4f20-b107-4091f26ebce2" data-media-type="file"></span></li><li>Go to Google's <a href="https://developers.google.com/speed/pagespeed/insights/" class="external-link" rel="nofollow">PageSpeed Insights</a> tool.</li><li>Paste the <strong>Forwarding</strong> URL in the text box and click <strong>Analyze</strong>.</li></ol><h2 id="TestSitePerformance-SpecialTestCases">Special Test Cases</h2><p>If you're trying to test specific things, like minified HTML/CSS/JS assets, you need to follow special build instructions:</p><ol><li>Build the site and execute all minification tasks: <code>gulp build-prod</code></li><li>Start a local web server and serve the site: <code>gulp serve</code></li></ol><p>Now you're ready to fire up ngrok and test the site.</p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Running any other build method (e.g., <code>rake</code>, <code>gulp build-dev</code>) will overwrite all file changes executed by <code>gulp build-prod</code> and <code>gulp serve</code> because Jekyll's default <code>serve</code> behavior is to recompile the site right before serving it.</p></div></div><p><br/></p><h2 id="TestSitePerformance-Relatedarticles">Related articles</h2><p></p><p>
+
+
+
+
+
+
+
+
+
+
+
+<ul class="content-by-label">
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                        <a href="/wiki/pages/viewpage.action?pageId=74225275">Grant OAuth 2 app permission (Postman)</a>
+                
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                        <a href="/wiki/display/TP/Deleting+saved+user+inputs+from+a+Yeoman+generator">Deleting saved user inputs from a Yeoman generator</a>
+                
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                        <a href="/wiki/display/TP/Test+Site+Performance">Test Site Performance</a>
+                
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                        <a href="/wiki/pages/viewpage.action?pageId=72552163">Set Up Basic Authentication (Postman)</a>
+                
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                        <a href="/wiki/display/TP/Manually+deploy+doc+site">Manually deploy doc site</a>
+                
+                        
+                    </div>
+    </li>
+    </ul>
+</p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/72651799/72651931.png">ngrok.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                 
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 19, 2017 09:39</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

@@ -1,0 +1,15 @@
+Product Component: _type required and one of (fixed_price_product_component, quantity_product_component, metered_product_component, formula_product_component)
+required fields:
+for fixed price: price
+for quantity: rate, tiering_mode
+for metered: usage_key
+for formula: formula
+
+The required fields I put under `check_parameters!` in the api code, so https://bitbucket.org/affinipay/amp-client-ruby/src/66316fe5cc01e939445dac71f3a6d0be1d0d259f/lib/amp/billing/client.rb?at=billing-product-components&fileviewer=file-view-default#client.rb-135 is for the parent (edited)
+
+[8:39]
+https://bitbucket.org/affinipay/amp-client-ruby/src/66316fe5cc01e939445dac71f3a6d0be1d0d259f/lib/amp/billing/client.rb?at=billing-product-components&fileviewer=file-view-default#client.rb-61 are the “subclasses"
+
+Businesses Required Fields
+https://bitbucket.org/affinipay/virtual_terminal/src/352ac59432c46276b59c912e879111328fe4e1bd/app/services/business_form.rb?at=master&fileviewer=file-view-default
+`attr_accessor` shows the fields `validates … presence:true` shows required

@@ -1,0 +1,48 @@
+- can determine at what frequency customers are billed
+- payment method not required for subs, but if one is defined, we'll use it to pay an invoice
+- our system is constantly looking at sub period end dates, determining the offset from start date (i think), and generating invoices (period end date > invoice date > payment date). if a payment is associated with an invoice, we set a date for payment
+- our intent with subs is to compete with chargify, recurly, fastspring, stripe, braintree, etc. what separates us from them is that we're not charging partners for initial product billing APIs
+- scenarios subs addresses:
+  - affinipay billing our customers
+  - partners billing their customers
+  - affinipay customers/merchants billing their clients
+
+ACH billing scenario is more complicated than a flat monthly fee. For example:
+  - monthly fee
+  - one-time setup fee
+  - volume rate
+  - per transaction cost
+  - per ACH reject fee
+  - adjustments (monthly fee waived0)
+
+All components appear as separate line items on an invoice. So we can show a monthly fee and then an adjustment that waives the fee for example.
+
+Product components allow for complex scenarios:
+ - Formula driven costs
+ - Differing account costs/rates on a per account basis
+ - Tiering/price brackets
+ - (not presently supported) Coupons for discounts (first month free)
+   - how much?
+   - what does it apply to?
+   - how long?
+   - does it have an expiration date?
+ - Trial periods
+   - similar facets as coupons
+ - Pro-rating
+   - what does it mean to cancel a subscription in the middle of a period or some other time frame
+
+Products
+- families own products and product components
+- products are the sum of product components
+- product components represent facets or billable aspects
+  - fixed price components
+  - quantity components (based on a number of something you pay a certain rate, e.g., ACH rejects 10 rejects * x = cost)
+  - metered components have a net volume rate and USAGE key (aka volume data used to multiply by the rate)
+
+Subscription components serve as override mechanisms to product component pricing
+
+Usage Service
+- Instead of querying the GW every time the billing service needs to know if there's an invoice ready to be paid, we created the usage service
+- usage service pushes all raw usage info into Amazon DynamoDB
+- when data gets pushed to Dynamo DB, the "aggregator" is notified and goes to figure out what 15-minute buckets of time apply to a customer over a specified period of time. this provides us with aggregate usage for a billing period (how do we know how much to charge for the volume of usage?)
+  - for example, how many transactions did a customer process over a period of time, call the "net_volume" key to find out what the volume was

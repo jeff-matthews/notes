@@ -1,0 +1,19 @@
+1. Install ansible with pip (https://bitbucket.org/affinipay/ansible-docs-deploy/overview)
+2. Set up environment variables:
+  - sudo vi ~/.profile (use this naming convention)
+    - export QA_ACCESS_KEY_ID=<your ID>
+    - export QA_SECRET_ACCESS_KEY=<Your key>
+  - env (to confirm; should see keys)
+
+I don't have sufficient permissions to take snapshots, but that's ok because that's only really useful for prod and only devops fools with that
+
+If after installing ansible you don't have a default ansible.cfg, use jeffs
+
+To test the script without deploying anything, add the --check flag:
+  ansible-playbook docs_deploy.yml --i inventory/servers --limit 'docs-qa' --check
+
+To deploy:
+  ansible-playbook docs_deploy.yml --i inventory/servers --limit 'docs-qa'
+
+To deploy in verbose mode, add the -vvv flag:
+  ansible-playbook docs_deploy.yml --i inventory/servers --limit 'docs-qa' -vvv

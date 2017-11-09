@@ -1,0 +1,14 @@
+To list files:
+  aws s3 ls s3://affinipay-qa/assets/dev-docs/master/
+
+To copy a file:
+  aws s3 cp s3://affinipay-qa/assets/dev-docs/versioning/dev-docs-20161222152643.tar.gz .
+
+Still need to write script to cp and deploy from internal web servers
+
+Talk to Danny about how he'd like to handle that for prod and internal servers
+
+To copy only the latest build based on date:
+
+  copies all 2017 builds:
+    aws s3 cp s3://affinipay-qa/assets/dev-docs/master/ ~/ --recursive --exclude "*" --include "*dev-docs-2017*"

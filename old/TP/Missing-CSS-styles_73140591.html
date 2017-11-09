@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tech Pubs : Missing CSS styles</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Tech Pubs</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="$exportUtils.getTitleAsHref($breadcrumb)">Tech Pubs</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="$exportUtils.getTitleAsHref($breadcrumb)">Troubleshooting articles</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Tech Pubs : Missing CSS styles
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jeff Matthews</span>, last modified on Mar 15, 2017
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <h2 id="MissingCSSstyles-Problem">Problem</h2><p>Styles added by user interaction with a page (e.g., hover, click, focus, active) or by dynamically generated content on page load (e.g., JS/jQuery plugins like <a href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;cad=rja&amp;uact=8&amp;ved=0ahUKEwij3Pvw4NjSAhVCzGMKHSyUCgUQFggcMAA&amp;url=http%3A%2F%2Fgregfranko.com%2Fjquery.tocify.js%2F&amp;usg=AFQjCNH5K4Q3GG4mL9ItIHYMg6d9sRAPZQ&amp;sig2=4cYBvYtMhGZaFDDze5ccuw" class="external-link" rel="nofollow">tocify</a>) aren't displaying as expected.</p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>We use <a href="https://github.com/giakki/uncss" class="external-link" rel="nofollow">uncss</a> (<a href="https://affinipay.atlassian.net/browse/TP-253" class="external-link" rel="nofollow">TP-253</a>) to remove unused styles from our stylesheets at compile time to reduce CSS file size, which can cause this problem.</p></div></div><p>For example, when I first implemented <code>uncss</code>, the payment gateway API reference TOC wasn't rendering because we use a plugin to generate it when the page loads.  Since <code>uncss</code> can only detect styles that are in use in the static HTML (i.e., before a page loads), and will remove all styles that aren't in use, no styles existed after compile time to render the API TOC.</p><p>Luckily, we can tell <code>uncss</code> to ignore styles we know we're going to need when a user interacts with a page or one of our plugins renders content on page load.</p><h2 id="MissingCSSstyles-Solution">Solution</h2><p>There are two methods for ignoring styles:</p><ul><li>CSS comments</li><li>Gulp task regex pattern (preferred)</li></ul><h3 id="MissingCSSstyles-CSScomments">CSS comments</h3><p>The easiest solution is to add a comment to the style in the source stylesheet (e.g., <em>dev-docs/css/materialize.css</em>). For example: </p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: css; gutter: false; theme: Confluence" data-theme="Confluence">/* uncss:ignore */
+.selector1 {
+    /* this rule will be ignored */
+}
+
+.selector2 {
+    /* this will NOT be ignored */
+}</pre>
+</div></div><p>We're already using comments like this for several styles because I was in a hurry when I implemented <a href="https://affinipay.atlassian.net/browse/TP-253" class="external-link" rel="nofollow">TP-253</a> and regex can be tricky. Ideally, we should be using regex because it's cleaner. </p><h3 id="MissingCSSstyles-Regexpattern">Regex pattern</h3><p>Add a regex pattern that matches the style to the ignore option in the <code>uncss</code> portion of the <code>minify-css</code> Gulp task. For example:</p><div class="code panel pdl" style="border-width: 1px;"><div class="codeContent panelContent pdl">
+<pre class="syntaxhighlighter-pre" data-syntaxhighlighter-params="brush: js; gutter: false; theme: Confluence" data-theme="Confluence"> .pipe(uncss({
+    html: [&#39;_site/**/*.html&#39;],
+    ignore: [/tocify/]
+  }))</pre>
+</div></div><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Don't enclose the regex pattern with quotes. Use standard regex syntax (i.e., slashes).</p></div></div><h2 id="MissingCSSstyles-Relatedarticles"><br/>Related articles</h2><p></p><p>
+
+
+
+
+
+
+
+
+
+
+
+<ul class="content-by-label">
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                        <a href="/wiki/display/TP/Missing+CSS+styles">Missing CSS styles</a>
+                
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                        <a href="/wiki/display/TP/Anchor+links+in+jekyll">Anchor links in jekyll</a>
+                
+                        
+                    </div>
+    </li>
+    </ul>
+</p><p><br/></p><p><br/></p>
+                    </div>
+
+                    
+                 
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 19, 2017 09:39</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

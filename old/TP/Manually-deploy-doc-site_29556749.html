@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tech Pubs : Manually deploy doc site</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Tech Pubs</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="$exportUtils.getTitleAsHref($breadcrumb)">Tech Pubs</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="$exportUtils.getTitleAsHref($breadcrumb)">How-to articles</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Tech Pubs : Manually deploy doc site
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jeff Matthews</span>, last modified on Mar 01, 2017
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Sometimes we need to manually deploy the doc site to different environments, like <strong>QA</strong> (172.30.68.227) and <strong>DEV</strong>  (TBD).</p><h2 id="Manuallydeploydocsite-TodeploytoQA:">To deploy to <strong>QA</strong>:</h2><ol><li><p>Follow the instructions in the <a href="https://bitbucket.org/affinipay/ansible-docs-deploy" class="external-link" rel="nofollow">ansible-docs-deploy</a> README to set up Ansible on your machine.</p></li><li>From your local <code>ansible-docs-deploy</code> directory, run the deploy script:<br/><ol><li><pre>ansible-playbook docs_deploy.yml --i inventory/servers --limit 'docs-qa'</pre></li></ol></li><li>Open a web browser, navigate to <a href="https://docs.qa.affinipay.com" class="external-link" rel="nofollow">https://docs.qa.affinipay.com</a> and verify changes.</li></ol><h2 id="Manuallydeploydocsite-TodeploythemasterbranchtoQA:">To deploy the master branch to <strong>QA</strong>:</h2><ol><li>Log in to <a href="http://buildocean.qa.affinipay.com/" class="external-link" rel="nofollow">Jenkins</a>.</li><li>Click the <a href="http://buildocean.qa.affinipay.com/job/dev_docs_review/" class="external-link" rel="nofollow">dev_docs_review</a> build configuration. </li><li>Scroll down to the Pipeline section.</li><li>Point the build at the master branch in the pipeline shell script: <code>env.BRANCH = '*/master'</code></li><li>Run the <a href="https://bitbucket.org/affinipay/ansible-docs-deploy" class="external-link" rel="nofollow">ansible-docs-deploy</a> script and enter <strong>review</strong> in the first prompt.</li></ol><h2 id="Manuallydeploydocsite-TodeploylocalassetstoDEV:">To deploy local assets to <strong>DEV</strong>:</h2><p>This is a manual process that I'd like to automate eventually.</p><ol><li>Copy the assets from your local project directory to the server:<ol><li><code>scp -r &lt;folder&gt; <span>&lt;username&gt;</span>@docs-qa:/home/&lt;username&gt;</code></li></ol></li><li><p>Log in to the server:</p></li><ol><li><p><code>ssh &lt;username&gt;@docs-qa</code></p></li></ol><li><p><span>Copy &lt;folder&gt; to a directory of your choosing inside www/doc-site (this is the main site directory, so you can create subdirectories here for your use case):<br/></span></p></li><ol><li><pre><code>sudo cp -r &lt;folder&gt; /home/affinipay/www/doc-site/</code></pre></li></ol><li>Copy only the contents of <code>&lt;folder&gt;</code> and not the folder itself to a directory:<ol><li><pre><code>sudo cp -a /folder/. /doc-site/</code></pre></li></ol></li><li>Open a browser and verify that the assets are available at <strong><code>https://doctest.qa.affinipay.com/&lt;subdirectory&gt;/index.html</code></strong>.</li></ol><h2 id="Manuallydeploydocsite-TodeploytoPROD:">To deploy to <strong>PROD</strong>:</h2><p>Only DEVOPS can deploy to prod. QA should open a DEVOPS JIRA issue when a release is ready for production. The issue must specify which <span class="inline-comment-marker" data-ref="86d88ef2-8544-4784-aa34-01248a933814">version</span> to deploy. In most cases, QA can literally specify the version as &quot;<strong>latest</strong>&quot;.</p><h2 id="Manuallydeploydocsite-DeployScript">Deploy Script</h2><p>I wrote a <a href="https://github.com/jeff-matthews/scripts/blob/master/aws-s3-deploy.sh" class="external-link" rel="nofollow">shell script</a> to download and deploy tarballs from AWS S3 to QA, but it requires AWS CLI configuration on the target server. DEVOPS simplified the script and rewrote it using Ansible. Follow the README in the <a href="https://bitbucket.org/affinipay/ansible-docs-deploy" class="external-link" rel="nofollow">script repo</a> to set up Ansible.</p><p>To run the Ansible script, run the following command from your local <code>ansible-deploy-script</code> directory:</p><pre style="margin-left: 30.0px;">ansible-playbook docs_deploy.yml --i inventory/servers --limit 'docs-qa'</pre><h2 id="Manuallydeploydocsite-Relatedarticles">Related articles</h2><p></p><p>
+
+
+
+
+
+
+
+
+
+
+
+<ul class="content-by-label">
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                        <a href="/wiki/display/TP/Manually+deploy+doc+site">Manually deploy doc site</a>
+                
+                        
+                    </div>
+    </li>
+    </ul>
+</p>
+                    </div>
+
+                    
+                 
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 19, 2017 09:39</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

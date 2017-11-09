@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tech Pubs : Single sourcing in jekyll</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Tech Pubs</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="$exportUtils.getTitleAsHref($breadcrumb)">Tech Pubs</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="$exportUtils.getTitleAsHref($breadcrumb)">How-to articles</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Tech Pubs : Single sourcing in jekyll
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jeff Matthews</span>, last modified on Feb 01, 2017
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>When possible, we should reuse the same &quot;chunks&quot; of source content throughout our documentation. Single-sourcing reduces the amount of maintenance we have to do on the doc repo. For example, by single-sourcing a ubiquitous product name we ensure that a future name change can be propagated throughout the doc repo quickly and efficiently by making the update to the single-source location only (instead of manually updating every instance or doing a global find &amp; replace).</p><h2 id="Singlesourcinginjekyll-Options">Options</h2><p>There are two ways to single-source content in Jekyll:</p><ol><li><strong>.YML Files in the <span style="color: rgb(255,102,0);">_data</span> directory - </strong>Content that can be structured in key-value pairs, like simple notes, terms/definitions, and variables (e.g., product names, brand names, etc) are ideal candidates for this method. </li><li><strong>.MD Files in the <span style="color: rgb(255,102,0);">_includes</span></strong> <strong>directory</strong>- Content with complex formatting (e.g., entire topics, topic subsections) is better suited to this method. </li></ol><h2 id="Singlesourcinginjekyll-.YMLExample">.YML Example</h2><p style="margin-left: 30.0px;">This is an example paragraph showing how to use a .yml file for single sourcing. In this example, I'm including <br/>a ubiquitous note below this paragraph to demonstrate the use of this single-sourcing method. </p><p style="margin-left: 30.0px;"><code>{{site.data.yml-file.note.example1}</code>}</p><p style="margin-left: 30.0px;">This is where the .yml file lives:</p><p style="margin-left: 60.0px;">dev-docs</p><p style="margin-left: 90.0px;">_data</p><p style="margin-left: 120.0px;">notes.yml</p><p style="margin-left: 30.0px;">This is what the notes.yml file looks like:</p><pre>    note:</pre><pre>      example1: &lt;span class=&quot;panel-note&quot;&gt;&lt;b&gt;Note:&lt;/b&gt; This is the best way to single source<br/>      extremely small pieces of information. It accepts HTML tags for minor formatting.&lt;/span&gt;</pre><pre>      example2: &lt;span class=&quot;panel-tip&quot;&gt;&lt;b&gt;Tip:&lt;/b&gt; I can have as many notes as I want in this file.&lt;/span&gt;</pre><h2 id="Singlesourcinginjekyll-.MDExample">.MD Example</h2><p>This is a more robust option because it supports all formatting options whereas the .yml method doesn't. Imagine a topic comprised of 3 sections:</p><ul><li>Overview</li><li>Installation</li><li>Configuration</li></ul><p>Ordinarily, you'd assume this to be a single topic with all three sections in plaintext. If there's potential to reuse any or all of these sections in other places on the doc site, we need to rethink that approach. For example, instead of this:</p><p style="margin-left: 30.0px;"># Overview</p><p style="margin-left: 30.0px;">Busey ipsum dolor sit amet, consectetur adipiscing elit. The best way to communicate is compatible. <br/>Compatible communication is listening with open ears and an open mind, and not being fearful or judgemental about what you're hearing.</p><p style="margin-left: 30.0px;"># Installation</p><p style="margin-left: 30.0px;">Busey ipsum dolor sit amet, consectetur adipiscing elit. It's good to yell at people and tell people that you're from Tennesee, so that way <br/>you'll be safe. It depends on your ability to take a risk on eating something when you dont know what it is. Thats why I enjoy eating in the dark.</p><p style="margin-left: 30.0px;">#  Configuration</p><p style="margin-left: 30.0px;">Busey ipsum dolor sit amet, consectetur adipiscing elit. I've accepted the fact that what I want to do to find whats special about a woman is to <br/>be with women. And dress like them. And let them tell me what they feel like when they're dressed like that, because I can't do that if I go in there dressed like a man.</p><p>We'd have this:</p><p style="margin-left: 30.0px;"># Overview</p><pre>   {% include overview.md %}</pre><p style="margin-left: 30.0px;"># Installation</p><pre>   {% include installation.md %}</pre><p style="margin-left: 30.0px;">#  Configuration</p><pre>   {% include configuration.md %}</pre><h2 id="Singlesourcinginjekyll-Step-by-stepguide">Step-by-step guide</h2><p>To single source content in Jekyll:</p><ol><li>Open the Jekyll project.</li><li>Open the <code>_data</code> directory.</li><li>Open one of the existing <code>.yml</code> files or create a new one.</li><li>Add a top-level identifier or use an existing identifier. </li><li>Add a key-value pair that defines your content <em>nested</em> <em>below</em> the top-level identifier and save your changes.<br/>  <code>note:</code><br/>       <code>example-note: This is where the content goes.</code></li><li>Insert a reference to your newly created single-source content in a topic using the following Liquid templating syntax:<br/><code>{{site.data.notes.note.payment-form-tip}</code>}</li><li>Build the project and verify that the content displays properly in the HTML.</li></ol><p><br/></p><div class="confluence-information-macro confluence-information-macro-information"><span class="aui-icon aui-icon-small aui-iconfont-info confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>You can use HTML syntax to format content. For notes, tips, and cautions, especially, wrap content in the appropriate span class (e.g., <code>&lt;span class=&quot;panel-note&quot;&gt;&lt;/span&gt;</code>).</p></div></div><h2 id="Singlesourcinginjekyll-Relatedarticles">Related articles</h2><p></p><p>
+
+
+
+
+
+
+
+
+
+
+
+<ul class="content-by-label">
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                        <a href="/wiki/pages/viewpage.action?pageId=74225275">Grant OAuth 2 app permission (Postman)</a>
+                
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                        <a href="/wiki/display/TP/Deleting+saved+user+inputs+from+a+Yeoman+generator">Deleting saved user inputs from a Yeoman generator</a>
+                
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                        <a href="/wiki/display/TP/Test+Site+Performance">Test Site Performance</a>
+                
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                        <a href="/wiki/pages/viewpage.action?pageId=72552163">Set Up Basic Authentication (Postman)</a>
+                
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                        <a href="/wiki/display/TP/Manually+deploy+doc+site">Manually deploy doc site</a>
+                
+                        
+                    </div>
+    </li>
+    </ul>
+</p>
+                    </div>
+
+                    
+                 
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 19, 2017 09:39</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>

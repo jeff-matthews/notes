@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tech Pubs : Set Up Basic Authentication (Postman)</title>
+        <link rel="stylesheet" href="styles/site.css" type="text/css" />
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+
+    <body class="theme-default aui-theme-default">
+        <div id="page">
+            <div id="main" class="aui-page-panel">
+                <div id="main-header">
+                    <div id="breadcrumb-section">
+                        <ol id="breadcrumbs">
+                            <li class="first">
+                                <span><a href="index.html">Tech Pubs</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="$exportUtils.getTitleAsHref($breadcrumb)">Tech Pubs</a></span>
+                            </li>
+                                                    <li>
+                                <span><a href="$exportUtils.getTitleAsHref($breadcrumb)">How-to articles</a></span>
+                            </li>
+                                                </ol>
+                    </div>
+                    <h1 id="title-heading" class="pagetitle">
+                                                <span id="title-text">
+                            Tech Pubs : Set Up Basic Authentication (Postman)
+                        </span>
+                    </h1>
+                </div>
+
+                <div id="content" class="view">
+                    <div class="page-metadata">
+                        
+        
+    
+        
+    
+        
+        
+            Created by <span class='author'> Jeff Matthews</span>, last modified on Mar 02, 2017
+                        </div>
+                    <div id="main-content" class="wiki-content group">
+                    <p>Our Payment Gateway API reference uses cURL to show example API request calls. <span>All requests are authenticated using </span><a href="http://en.wikipedia.org/wiki/Basic_access_authentication" class="external-link" rel="nofollow">HTTP Basic Authentication</a><span>. To authenticate, you provide either your test- or live-mode secret key in the HTTP </span>Authorization<span> header. </span></p><p><span><span>Using the </span>cURL<span> command line tool used in the API examples, you set this header using the --<code>user</code></span><span> flag, followed by the <code>secret_key</code> and then a trailing colon <code>: </code></span></span>While it's fine to use cURL to interact with the API, it's easier to use a client like Postman. Setting up authentication isn't obvious, however, so follow these instructions: </p><h2 id="SetUpBasicAuthentication(Postman)-Step-by-stepguide">Step-by-step guide</h2><ol><li>Download the <a href="https://www.getpostman.com/" class="external-link" rel="nofollow">Postman</a> Chrome plugin and launch the app. </li><li>Next, you need to gather some information Postman needs to authenticate with the payment gateway.<br/><ol><li>Log in to the AffiniPay web app to retrieve your <code>secret_key</code>.<ol><li><strong>Developers</strong> &gt; <strong>Authorized Applications </strong>&gt;<strong> Your application </strong>&gt;<strong> Show Credentials</strong></li></ol></li><li>Go to an <a href="https://www.base64encode.org/" class="external-link" rel="nofollow">Online Base64 Encoder</a>.</li><li>Paste your <code>secret_key</code> in the text box followed by a colon <code>: </code></li><li>Click <strong>Encode</strong>.</li><li>Copy the encoded result.</li></ol></li><li>Go back to the Postman app and click  <strong>Authorization</strong>. </li><li>Select <strong>No Auth</strong>.</li><li>Click <strong>Headers</strong>.</li><li>In the first <strong>key</strong> text field, enter &quot;Authorization&quot;.</li><li>In the first <strong>value</strong> text field adjacent to the <strong>key</strong> text field, enter &quot;Basic&quot; followed by a space and then paste the Base64-encoded result from step 4.</li></ol><p style="margin-left: 30.0px;"><span class="confluence-embedded-file-wrapper confluence-embedded-manual-size"><img class="confluence-embedded-image" height="250" src="attachments/72552163/72845958.png?height=250" data-image-src="attachments/72552163/72845958.png" data-unresolved-comment-count="0" data-linked-resource-id="72845958" data-linked-resource-version="2" data-linked-resource-type="attachment" data-linked-resource-default-alias="postman.png" data-base-url="https://affinipay.atlassian.net/wiki" data-linked-resource-content-type="image/png" data-linked-resource-container-id="72552163" data-linked-resource-container-version="7" data-media-id="eefc7f30-6304-49d7-b84f-0fb8a86735a2" data-media-type="file"></span></p><p>That's it! You should be able to make calls to the API using your Payment Gateway credentials (i.e., {{secret_key}}).</p><h2 id="SetUpBasicAuthentication(Postman)-Relatedarticles">Related articles</h2><p></p><p>
+
+
+
+
+
+
+
+
+
+
+
+<ul class="content-by-label">
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                        <a href="/wiki/pages/viewpage.action?pageId=74225275">Grant OAuth 2 app permission (Postman)</a>
+                
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                        <a href="/wiki/display/TP/Deleting+saved+user+inputs+from+a+Yeoman+generator">Deleting saved user inputs from a Yeoman generator</a>
+                
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                        <a href="/wiki/display/TP/Test+Site+Performance">Test Site Performance</a>
+                
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                        <a href="/wiki/pages/viewpage.action?pageId=72552163">Set Up Basic Authentication (Postman)</a>
+                
+                        
+                    </div>
+    </li>
+        <li>
+        <div>
+                <span class="icon aui-icon aui-icon-small aui-iconfont-page-default" title="Page">Page:</span>        </div>
+
+        <div class="details">
+                        <a href="/wiki/display/TP/Manually+deploy+doc+site">Manually deploy doc site</a>
+                
+                        
+                    </div>
+    </li>
+    </ul>
+</p>
+                    </div>
+
+                                        <div class="pageSection group">
+                        <div class="pageSectionHeader">
+                            <h2 id="attachments" class="pageSectionTitle">Attachments:</h2>
+                        </div>
+
+                        <div class="greybox" align="left">
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/72552163/72846016.png">postman.png</a> (image/png)
+                                <br/>
+                                                            <img src="images/icons/bullet_blue.gif" height="8" width="8" alt=""/>
+                                <a href="attachments/72552163/72845958.png">postman.png</a> (image/png)
+                                <br/>
+                                                    </div>
+                    </div>
+                    
+                 
+                </div>             </div> 
+            <div id="footer" role="contentinfo">
+                <section class="footer-body">
+                    <p>Document generated by Confluence on May 19, 2017 09:39</p>
+                    <div id="footer-logo"><a href="http://www.atlassian.com/">Atlassian</a></div>
+                </section>
+            </div>
+        </div>     </body>
+</html>
