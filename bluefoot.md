@@ -64,3 +64,10 @@
 -   In **Other** > **Code**, the "HTML" label is misleading because it won't render HTML like in **General** > **HTML**. It displays code with syntax highlighting. Change label to "Code".
 
 -   In **General** > **HTML**, can I use in-line CSS styles? I'm assuming there's no _Classes_ section b/c there could be a mix of elements and applying styles to the entire block wouldn't make sense. NO
+
+
+# These are Robert's instructions for setting up Bluefoot
+
+1. run 'composer create-project -s dev --repository-url=https://repo.magento.com/ magento/project-community-edition=2.2.0' in your htdocs (webroot) folder
+2. go to the magento root folder and run 'composer require gene/bluefoot=^1.0'
+3. install magento
