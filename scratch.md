@@ -13,7 +13,7 @@ SET PASSWORD FOR 'magento'@'localhost' = PASSWORD('magento');
 UPDATE core_config_data SET value='http://127.0.0.1:8080/magento2' WHERE path='web/unsecure/base_url';
 
 ## Magento install CLI
-bin/magento setup:install --base-url=http://localhost:8080/magento2ce --db-host=localhost --db-name=magento --db-user=magento --backend-frontname=admin --db-password=magento --admin-firstname=admin --admin-lastname=admin --admin-email=admin@admin.com --admin-user=admin --admin-password=admin123 --language=en_US --currency=USD --timezone=America/Chicago --use-rewrites=1
+bin/magento setup:install --base-url=http://192.168.33.10/magento2 --db-host=localhost --db-name=magento --db-user=magento --backend-frontname=admin --db-password=magento --admin-firstname=admin --admin-lastname=admin --admin-email=admin@admin.com --admin-user=admin --admin-password=admin123 --language=en_US --currency=USD --timezone=America/Chicago --use-rewrites=1
 
 Usually need to run bin/magento deploy:mode:set developer afterwards to get the storefront to render. Why?
 
