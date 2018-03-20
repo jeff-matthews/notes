@@ -35,14 +35,13 @@ Try figure out how to automate this with your Vagrantfile.
 Reopening this issue because if this turns out to be an access issue, then the error message is insufficient. The error message comes from Composer though, I think, so we'd have to add a note to this topic in devdocs.
 
 ## Devdocs git sync
-
 Need to document how this works on the wiki.
 
 This is how the `devdocs_sync.py` script works:
 -   Clones the private repo
 -   Adds the public repo as a remote to the local private repo
 -   Compares commit hashes btwn all three (remote public, remote private, local private), if all of the commit hashes match, no sync is necessary. If they don't match, then it syncs
--   Git pull inside the private local repo to fetch and merge without commit; effectively syncing the repos
+-   Git pull inside the private local repo to fetch and merge without commit; effectively syncing the repos\
 
 ### Conflict states
 -   If a community member updates a file in the public repo and it gets merged

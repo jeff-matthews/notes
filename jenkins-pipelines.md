@@ -18,6 +18,7 @@ pipeline {
                 sh 'gem install bundler'
                 sh 'bundle install'
             }
+        }
 
         stage('Build the devdocs site') {
             steps {
@@ -50,3 +51,24 @@ node {
     }
 }
 ```
+
+node {
+    stage('Build') {
+
+          stage("Checkout") {
+            git branch: 'develop', url: 'https://github.com/magento/devdocs.git'  
+          }
+
+          stage("Install dependencies") {
+            sh 'bundle install'
+          }
+          stage("Run jekyll") {
+            sh 'jekyll build'
+          }
+
+    }
+    stage('Archive') {
+      zip zipFile: 'site.zip', archive: true, dir: '_site'
+      archiveArtifacts artifacts: 'site.zip', onlyIfSuccessful: true
+    }
+}

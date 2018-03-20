@@ -1,5 +1,5 @@
 ## Using gulp for local development
-1.  Install the latest stable version of node.js. I recommend using using `nvm`.
+1.  Install the latest stable version of node.js. I recommend using `nvm`.
 
 1.  Navigate to your local devdocs directory.
 
@@ -60,6 +60,6 @@
 
     `gulp dev`
 
-This command should automatically launch a browser for you.
+    This command should automatically launch a browser for you.
 
 Now, whenever you modify a file (e.g., add, edit, delete), gulp will rebuild the specified versions/guide in your `_config.local.yml` file. I typically build one version and one guide at a time. Build times are much shorter than running all-version builds.
