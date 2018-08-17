@@ -57,3 +57,40 @@ AND
 * * * * * /usr/bin/php /var/www/html/magento2ee/update/cron.php >> /var/www/html/magento2ee/var/log/update.cron.log
 * * * * * /usr/bin/php /var/www/html/magento2ee/bin/magento setup:cron:run >> /var/www/html/magento2ee/var/log/setup.cron.log
 ```
+
+## Converting HTML links
+
+```bash
+sed -i '' -e 's/<a href="\(.*\)">\(.*\)<\/a>/[\2](\1)/g' path/to/file.md
+```
+
+## HTML to markdown
+
+- Delete "Related topics" sections
+
+- Write regex that finds all obsolete tags and delete:
+
+  ```yaml
+  subgroup: 04_CLI
+  menu_title: Set the Magento mode
+  menu_node:
+  menu_order: 200
+  ```
+
+- Convert href links to markdown links
+
+- Convert img links to markdown links
+
+- Search and delete:
+
+  ```terminal
+   target="\_blank"
+  ```
+
+  ```terminal
+  {:target="\_blank"}
+  ```
+
+  ```terminal
+   target="&#95;blank"
+  ```
