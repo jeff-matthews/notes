@@ -16,7 +16,7 @@
 
 3. Set file permissions:
 
-    cd /var/www/html/magento2ee
+    cd /var/www/html/magento2
     find var generated vendor pub/static pub/media app/etc -type f -exec chmod g+w {} \;
     find var generated vendor pub/static pub/media app/etc -type d -exec chmod g+ws {} \;
     chown -R :www-data .
@@ -24,6 +24,6 @@
 
 4. Install Magento via CLI or Web Setup Wizard.
 
-    bin/magento setup:install --base-url=http://192.168.33.10/magento2ce --db-host=localhost --db-name=magento --db-user=magento --backend-frontname=admin --db-password=magento --admin-firstname=admin --admin-lastname=admin --admin-email=admin@admin.com --admin-user=admin --admin-password=admin123 --language=en_US --currency=USD --timezone=America/Chicago --use-rewrites=1
+    bin/magento setup:install --base-url=http://192.168.33.10/magento2 --db-host=localhost --db-name=magento --db-user=magento --backend-frontname=admin --db-password=magento --admin-firstname=admin --admin-lastname=admin --admin-email=admin@admin.com --admin-user=admin --admin-password=admin123 --language=en_US --currency=USD --timezone=America/Chicago --use-rewrites=1
 
     Usually need to run bin/magento deploy:mode:set developer afterwards to get the storefront to render. Why?

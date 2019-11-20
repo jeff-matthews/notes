@@ -1,0 +1,49 @@
+exclude:
+  - community
+  # - guides
+  - guides/m1x
+  - guides/v2.0
+  # - guides/v2.1
+  - guides/v2.2
+  - guides/v2.3
+  - mftf
+  - mbi
+  - page-builder/guides
+  - page-builder/migration
+  - extensions
+  - release
+  - redoc
+  - swagger
+# Guides
+  - guides/v2.1/advanced-reporting
+  - guides/v2.1/architecture
+  - guides/v2.1/b2b
+  - guides/v2.1/cloud
+  - guides/v2.1/coding-standards
+  - guides/v2.1/comp-mgr
+  - guides/v2.1/config-guide
+  - guides/v2.1/contributor-guide
+  - guides/v2.1/design-styleguide
+  - guides/v2.1/ext-best-practices
+  - guides/v2.1/extension-dev-guide
+  - guides/v2.1/frontend-dev-guide
+  - guides/v2.1/get-started
+  - guides/v2.1/howdoi
+  - guides/v2.1/install-gde
+  - guides/v2.1/inventory
+  # - guides/v2.1/javascript-dev-guide
+  - guides/v2.1/marketplace
+  - guides/v2.1/migration
+  - guides/v2.1/mrg
+  - guides/v2.1/msi
+  - guides/v2.1/mtf
+  - guides/v2.1/pattern-library
+  - guides/v2.1/payments-integrations
+  - guides/v2.1/performance-best-practices
+  - guides/v2.1/pwa
+  - guides/v2.1/release-notes
+  - guides/v2.1/rest
+  - guides/v2.1/soap
+  - guides/v2.1/test
+  - guides/v2.1/ui-comp_guide
+  - guides/v2.1/ui-components
