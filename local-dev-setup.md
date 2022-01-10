@@ -24,7 +24,7 @@ Alex's Vagrant box is great, but contains a lot of complicated automation. I'm g
 
 3.  Download and install Magento via Composer
 
-    ./magento setup:install --base-url=http://192.168.33.10 --db-host=localhost --db-name=magento --db-user=magento --db-password=magento --admin-firstname=admin --admin-lastname=admin --admin-email=admin@admin.com --admin-user=admin --admin-password=admin123 --language=en_US --currency=USD --timezone=America/Chicago --use-rewrites=1
+    ./magento setup:install --base-url=http://172.16.52.134 --db-host=localhost --db-name=magento --db-user=magento --db-password=magento --admin-firstname=admin --admin-lastname=admin --admin-email=admin@admin.com --admin-user=admin --admin-password=admin123 --language=en_US --currency=USD --timezone=America/Chicago --use-rewrites=1
 
 4.  Set file permissions & create magento user
 
